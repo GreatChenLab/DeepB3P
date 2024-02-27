@@ -1,0 +1,1552 @@
+2023-10-31 16:24:22 - utils.py[line:17] - INFO: set seed 2023 for everything
+2023-10-31 16:24:22 - train_trs_blast1000_nfc.py[line:63] - INFO: read pos train seqs: 6851
+2023-10-31 16:24:22 - train_trs_blast1000_nfc.py[line:64] - INFO: read neg train seqs: 6851
+2023-10-31 16:24:22 - deepb3p.py[line:37] - INFO: the device is cuda:2
+2023-10-31 16:24:22 - deepb3p.py[line:38] - INFO: Begining init the deepb3p model with the lr is: 0.0001
+2023-10-31 16:24:24 - deepb3p.py[line:55] - INFO: the model:
+Classifier(
+  (encoder): Encoder(
+    (src_emb): Embedding(21, 512)
+    (pos_emb): PositionalEncoding(
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (layers): ModuleList(
+      (0): EncoderLayer(
+        (enc_self_attn): MultiHeadAttention(
+          (W_Q): Linear(in_features=512, out_features=64, bias=False)
+          (W_K): Linear(in_features=512, out_features=64, bias=False)
+          (W_V): Linear(in_features=512, out_features=64, bias=False)
+          (fc): Linear(in_features=64, out_features=512, bias=False)
+        )
+        (pos_ffn): PoswiseFeedForwardNet(
+          (fc): Sequential(
+            (0): Linear(in_features=512, out_features=16, bias=False)
+            (1): ReLU()
+            (2): Linear(in_features=16, out_features=512, bias=False)
+          )
+        )
+      )
+    )
+  )
+  (decoder): Decoder(
+    (tgt_emb): Embedding(21, 512)
+    (pos_emb): PositionalEncoding(
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (layers): ModuleList(
+      (0): DecoderLayer(
+        (dec_self_attn): MultiHeadAttention(
+          (W_Q): Linear(in_features=512, out_features=64, bias=False)
+          (W_K): Linear(in_features=512, out_features=64, bias=False)
+          (W_V): Linear(in_features=512, out_features=64, bias=False)
+          (fc): Linear(in_features=64, out_features=512, bias=False)
+        )
+        (dec_enc_attn): MultiHeadAttention(
+          (W_Q): Linear(in_features=512, out_features=64, bias=False)
+          (W_K): Linear(in_features=512, out_features=64, bias=False)
+          (W_V): Linear(in_features=512, out_features=64, bias=False)
+          (fc): Linear(in_features=64, out_features=512, bias=False)
+        )
+        (pos_ffn): PoswiseFeedForwardNet(
+          (fc): Sequential(
+            (0): Linear(in_features=512, out_features=16, bias=False)
+            (1): ReLU()
+            (2): Linear(in_features=16, out_features=512, bias=False)
+          )
+        )
+      )
+    )
+  )
+  (projection): Sequential(
+    (0): Linear(in_features=25600, out_features=256, bias=True)
+    (1): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): ReLU()
+    (3): Linear(in_features=256, out_features=256, bias=True)
+    (4): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): ReLU()
+    (6): Linear(in_features=256, out_features=2, bias=True)
+  )
+)
+2023-10-31 16:24:24 - utils.py[line:17] - INFO: set seed 1 for everything
+2023-10-31 16:24:24 - deepb3p.py[line:121] - INFO: begin train with fold 1
+2023-10-31 16:24:43 - utils.py[line:40] - INFO: tn=4185, fp=1295, fn=1075, tp=4405
+2023-10-31 16:24:43 - utils.py[line:41] - INFO: y_pred: 0=5260 | 1=5700
+2023-10-31 16:24:43 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:24:43 - utils.py[line:43] - INFO: auc=0.8541|sn=0.8038|sp=0.7637|acc=0.7838|mcc=0.5680
+2023-10-31 16:24:43 - deepb3p.py[line:138] - INFO: training: Epoch-1/200 | loss=0.5198 | time=0.3218 min
+2023-10-31 16:24:46 - utils.py[line:40] - INFO: tn=934, fp=434, fn=35, tp=1333
+2023-10-31 16:24:46 - utils.py[line:41] - INFO: y_pred: 0=969 | 1=1767
+2023-10-31 16:24:46 - utils.py[line:42] - INFO: y_true: 0=1368 | 1=1368
+2023-10-31 16:24:46 - utils.py[line:43] - INFO: auc=0.9283|sn=0.9744|sp=0.6827|acc=0.8286|mcc=0.6870
+2023-10-31 16:24:46 - deepb3p.py[line:141] - INFO: validing: Epoch-1/200 | loss=0.4791 | time=0.0521 min
+2023-10-31 16:24:46 - deepb3p.py[line:158] - INFO: Get a better model with acc 0.8286
+2023-10-31 16:25:04 - utils.py[line:40] - INFO: tn=4464, fp=1017, fn=835, tp=4644
+2023-10-31 16:25:04 - utils.py[line:41] - INFO: y_pred: 0=5299 | 1=5661
+2023-10-31 16:25:04 - utils.py[line:42] - INFO: y_true: 0=5481 | 1=5479
+2023-10-31 16:25:04 - utils.py[line:43] - INFO: auc=0.9066|sn=0.8476|sp=0.8144|acc=0.8310|mcc=0.6624
+2023-10-31 16:25:04 - deepb3p.py[line:138] - INFO: training: Epoch-2/200 | loss=0.4723 | time=0.2986 min
+2023-10-31 16:25:07 - utils.py[line:40] - INFO: tn=1140, fp=228, fn=118, tp=1250
+2023-10-31 16:25:07 - utils.py[line:41] - INFO: y_pred: 0=1258 | 1=1478
+2023-10-31 16:25:07 - utils.py[line:42] - INFO: y_true: 0=1368 | 1=1368
+2023-10-31 16:25:07 - utils.py[line:43] - INFO: auc=0.9378|sn=0.9137|sp=0.8333|acc=0.8735|mcc=0.7495
+2023-10-31 16:25:07 - deepb3p.py[line:141] - INFO: validing: Epoch-2/200 | loss=0.4356 | time=0.0510 min
+2023-10-31 16:25:07 - deepb3p.py[line:158] - INFO: Get a better model with acc 0.8735
+2023-10-31 16:25:25 - utils.py[line:40] - INFO: tn=4524, fp=956, fn=682, tp=4798
+2023-10-31 16:25:25 - utils.py[line:41] - INFO: y_pred: 0=5206 | 1=5754
+2023-10-31 16:25:25 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:25:25 - utils.py[line:43] - INFO: auc=0.9213|sn=0.8755|sp=0.8255|acc=0.8505|mcc=0.7020
+2023-10-31 16:25:25 - deepb3p.py[line:138] - INFO: training: Epoch-3/200 | loss=0.4564 | time=0.2850 min
+2023-10-31 16:25:28 - utils.py[line:40] - INFO: tn=1242, fp=126, fn=265, tp=1103
+2023-10-31 16:25:28 - utils.py[line:41] - INFO: y_pred: 0=1507 | 1=1229
+2023-10-31 16:25:28 - utils.py[line:42] - INFO: y_true: 0=1368 | 1=1368
+2023-10-31 16:25:28 - utils.py[line:43] - INFO: auc=0.9412|sn=0.8063|sp=0.9079|acc=0.8571|mcc=0.7179
+2023-10-31 16:25:28 - deepb3p.py[line:141] - INFO: validing: Epoch-3/200 | loss=0.4482 | time=0.0497 min
+2023-10-31 16:25:46 - utils.py[line:40] - INFO: tn=4637, fp=844, fn=646, tp=4833
+2023-10-31 16:25:46 - utils.py[line:41] - INFO: y_pred: 0=5283 | 1=5677
+2023-10-31 16:25:46 - utils.py[line:42] - INFO: y_true: 0=5481 | 1=5479
+2023-10-31 16:25:46 - utils.py[line:43] - INFO: auc=0.9309|sn=0.8821|sp=0.8460|acc=0.8641|mcc=0.7286
+2023-10-31 16:25:46 - deepb3p.py[line:138] - INFO: training: Epoch-4/200 | loss=0.4428 | time=0.3084 min
+2023-10-31 16:25:49 - utils.py[line:40] - INFO: tn=1243, fp=127, fn=205, tp=1161
+2023-10-31 16:25:49 - utils.py[line:41] - INFO: y_pred: 0=1448 | 1=1288
+2023-10-31 16:25:49 - utils.py[line:42] - INFO: y_true: 0=1370 | 1=1366
+2023-10-31 16:25:49 - utils.py[line:43] - INFO: auc=0.9545|sn=0.8499|sp=0.9073|acc=0.8787|mcc=0.7585
+2023-10-31 16:25:49 - deepb3p.py[line:141] - INFO: validing: Epoch-4/200 | loss=0.4240 | time=0.0520 min
+2023-10-31 16:25:49 - deepb3p.py[line:158] - INFO: Get a better model with acc 0.8787
+2023-10-31 16:26:08 - utils.py[line:40] - INFO: tn=4719, fp=762, fn=650, tp=4829
+2023-10-31 16:26:08 - utils.py[line:41] - INFO: y_pred: 0=5369 | 1=5591
+2023-10-31 16:26:08 - utils.py[line:42] - INFO: y_true: 0=5481 | 1=5479
+2023-10-31 16:26:08 - utils.py[line:43] - INFO: auc=0.9364|sn=0.8814|sp=0.8610|acc=0.8712|mcc=0.7425
+2023-10-31 16:26:08 - deepb3p.py[line:138] - INFO: training: Epoch-5/200 | loss=0.4368 | time=0.3110 min
+2023-10-31 16:26:11 - utils.py[line:40] - INFO: tn=1210, fp=158, fn=127, tp=1241
+2023-10-31 16:26:11 - utils.py[line:41] - INFO: y_pred: 0=1337 | 1=1399
+2023-10-31 16:26:11 - utils.py[line:42] - INFO: y_true: 0=1368 | 1=1368
+2023-10-31 16:26:11 - utils.py[line:43] - INFO: auc=0.9542|sn=0.9072|sp=0.8845|acc=0.8958|mcc=0.7919
+2023-10-31 16:26:11 - deepb3p.py[line:141] - INFO: validing: Epoch-5/200 | loss=0.4159 | time=0.0424 min
+2023-10-31 16:26:11 - deepb3p.py[line:158] - INFO: Get a better model with acc 0.8958
+2023-10-31 16:26:27 - utils.py[line:40] - INFO: tn=4748, fp=732, fn=623, tp=4857
+2023-10-31 16:26:27 - utils.py[line:41] - INFO: y_pred: 0=5371 | 1=5589
+2023-10-31 16:26:27 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:26:27 - utils.py[line:43] - INFO: auc=0.9403|sn=0.8863|sp=0.8664|acc=0.8764|mcc=0.7529
+2023-10-31 16:26:27 - deepb3p.py[line:138] - INFO: training: Epoch-6/200 | loss=0.4311 | time=0.2705 min
+2023-10-31 16:26:29 - utils.py[line:40] - INFO: tn=1193, fp=177, fn=116, tp=1250
+2023-10-31 16:26:29 - utils.py[line:41] - INFO: y_pred: 0=1309 | 1=1427
+2023-10-31 16:26:29 - utils.py[line:42] - INFO: y_true: 0=1370 | 1=1366
+2023-10-31 16:26:29 - utils.py[line:43] - INFO: auc=0.9606|sn=0.9151|sp=0.8708|acc=0.8929|mcc=0.7866
+2023-10-31 16:26:29 - deepb3p.py[line:141] - INFO: validing: Epoch-6/200 | loss=0.4163 | time=0.0421 min
+2023-10-31 16:26:44 - utils.py[line:40] - INFO: tn=4775, fp=706, fn=548, tp=4931
+2023-10-31 16:26:44 - utils.py[line:41] - INFO: y_pred: 0=5323 | 1=5637
+2023-10-31 16:26:44 - utils.py[line:42] - INFO: y_true: 0=5481 | 1=5479
+2023-10-31 16:26:44 - utils.py[line:43] - INFO: auc=0.9463|sn=0.9000|sp=0.8712|acc=0.8856|mcc=0.7715
+2023-10-31 16:26:44 - deepb3p.py[line:138] - INFO: training: Epoch-7/200 | loss=0.4234 | time=0.2490 min
+2023-10-31 16:26:47 - utils.py[line:40] - INFO: tn=1225, fp=142, fn=127, tp=1242
+2023-10-31 16:26:47 - utils.py[line:41] - INFO: y_pred: 0=1352 | 1=1384
+2023-10-31 16:26:47 - utils.py[line:42] - INFO: y_true: 0=1367 | 1=1369
+2023-10-31 16:26:47 - utils.py[line:43] - INFO: auc=0.9627|sn=0.9072|sp=0.8961|acc=0.9017|mcc=0.8034
+2023-10-31 16:26:47 - deepb3p.py[line:141] - INFO: validing: Epoch-7/200 | loss=0.4073 | time=0.0366 min
+2023-10-31 16:26:47 - deepb3p.py[line:158] - INFO: Get a better model with acc 0.9017
+2023-10-31 16:27:01 - utils.py[line:40] - INFO: tn=4810, fp=670, fn=560, tp=4920
+2023-10-31 16:27:01 - utils.py[line:41] - INFO: y_pred: 0=5370 | 1=5590
+2023-10-31 16:27:01 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:27:01 - utils.py[line:43] - INFO: auc=0.9474|sn=0.8978|sp=0.8777|acc=0.8878|mcc=0.7757
+2023-10-31 16:27:01 - deepb3p.py[line:138] - INFO: training: Epoch-8/200 | loss=0.4211 | time=0.2444 min
+2023-10-31 16:27:04 - utils.py[line:40] - INFO: tn=1286, fp=82, fn=244, tp=1124
+2023-10-31 16:27:04 - utils.py[line:41] - INFO: y_pred: 0=1530 | 1=1206
+2023-10-31 16:27:04 - utils.py[line:42] - INFO: y_true: 0=1368 | 1=1368
+2023-10-31 16:27:04 - utils.py[line:43] - INFO: auc=0.9592|sn=0.8216|sp=0.9401|acc=0.8808|mcc=0.7671
+2023-10-31 16:27:04 - deepb3p.py[line:141] - INFO: validing: Epoch-8/200 | loss=0.4266 | time=0.0380 min
+2023-10-31 16:27:18 - utils.py[line:40] - INFO: tn=4813, fp=668, fn=498, tp=4981
+2023-10-31 16:27:18 - utils.py[line:41] - INFO: y_pred: 0=5311 | 1=5649
+2023-10-31 16:27:18 - utils.py[line:42] - INFO: y_true: 0=5481 | 1=5479
+2023-10-31 16:27:18 - utils.py[line:43] - INFO: auc=0.9523|sn=0.9091|sp=0.8781|acc=0.8936|mcc=0.7876
+2023-10-31 16:27:18 - deepb3p.py[line:138] - INFO: training: Epoch-9/200 | loss=0.4152 | time=0.2325 min
+2023-10-31 16:27:20 - utils.py[line:40] - INFO: tn=1260, fp=107, fn=182, tp=1187
+2023-10-31 16:27:20 - utils.py[line:41] - INFO: y_pred: 0=1442 | 1=1294
+2023-10-31 16:27:20 - utils.py[line:42] - INFO: y_true: 0=1367 | 1=1369
+2023-10-31 16:27:20 - utils.py[line:43] - INFO: auc=0.9608|sn=0.8671|sp=0.9217|acc=0.8944|mcc=0.7899
+2023-10-31 16:27:20 - deepb3p.py[line:141] - INFO: validing: Epoch-9/200 | loss=0.4139 | time=0.0327 min
+2023-10-31 16:27:34 - utils.py[line:40] - INFO: tn=4847, fp=634, fn=510, tp=4969
+2023-10-31 16:27:34 - utils.py[line:41] - INFO: y_pred: 0=5357 | 1=5603
+2023-10-31 16:27:34 - utils.py[line:42] - INFO: y_true: 0=5481 | 1=5479
+2023-10-31 16:27:34 - utils.py[line:43] - INFO: auc=0.9539|sn=0.9069|sp=0.8843|acc=0.8956|mcc=0.7914
+2023-10-31 16:27:34 - deepb3p.py[line:138] - INFO: training: Epoch-10/200 | loss=0.4141 | time=0.2321 min
+2023-10-31 16:27:36 - utils.py[line:40] - INFO: tn=1283, fp=85, fn=192, tp=1176
+2023-10-31 16:27:36 - utils.py[line:41] - INFO: y_pred: 0=1475 | 1=1261
+2023-10-31 16:27:36 - utils.py[line:42] - INFO: y_true: 0=1368 | 1=1368
+2023-10-31 16:27:36 - utils.py[line:43] - INFO: auc=0.9643|sn=0.8596|sp=0.9379|acc=0.8988|mcc=0.8000
+2023-10-31 16:27:36 - deepb3p.py[line:141] - INFO: validing: Epoch-10/200 | loss=0.4131 | time=0.0376 min
+2023-10-31 16:27:50 - utils.py[line:40] - INFO: tn=4882, fp=599, fn=476, tp=5003
+2023-10-31 16:27:50 - utils.py[line:41] - INFO: y_pred: 0=5358 | 1=5602
+2023-10-31 16:27:50 - utils.py[line:42] - INFO: y_true: 0=5481 | 1=5479
+2023-10-31 16:27:50 - utils.py[line:43] - INFO: auc=0.9574|sn=0.9131|sp=0.8907|acc=0.9019|mcc=0.8040
+2023-10-31 16:27:50 - deepb3p.py[line:138] - INFO: training: Epoch-11/200 | loss=0.4082 | time=0.2280 min
+2023-10-31 16:27:52 - utils.py[line:40] - INFO: tn=1190, fp=177, fn=94, tp=1275
+2023-10-31 16:27:52 - utils.py[line:41] - INFO: y_pred: 0=1284 | 1=1452
+2023-10-31 16:27:52 - utils.py[line:42] - INFO: y_true: 0=1367 | 1=1369
+2023-10-31 16:27:52 - utils.py[line:43] - INFO: auc=0.9647|sn=0.9313|sp=0.8705|acc=0.9010|mcc=0.8034
+2023-10-31 16:27:52 - deepb3p.py[line:141] - INFO: validing: Epoch-11/200 | loss=0.4084 | time=0.0365 min
+2023-10-31 16:28:06 - utils.py[line:40] - INFO: tn=4871, fp=609, fn=445, tp=5035
+2023-10-31 16:28:06 - utils.py[line:41] - INFO: y_pred: 0=5316 | 1=5644
+2023-10-31 16:28:06 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:28:06 - utils.py[line:43] - INFO: auc=0.9584|sn=0.9188|sp=0.8889|acc=0.9038|mcc=0.8080
+2023-10-31 16:28:06 - deepb3p.py[line:138] - INFO: training: Epoch-12/200 | loss=0.4048 | time=0.2305 min
+2023-10-31 16:28:08 - utils.py[line:40] - INFO: tn=1172, fp=197, fn=63, tp=1304
+2023-10-31 16:28:08 - utils.py[line:41] - INFO: y_pred: 0=1235 | 1=1501
+2023-10-31 16:28:08 - utils.py[line:42] - INFO: y_true: 0=1369 | 1=1367
+2023-10-31 16:28:08 - utils.py[line:43] - INFO: auc=0.9671|sn=0.9539|sp=0.8561|acc=0.9050|mcc=0.8139
+2023-10-31 16:28:08 - deepb3p.py[line:141] - INFO: validing: Epoch-12/200 | loss=0.4063 | time=0.0386 min
+2023-10-31 16:28:08 - deepb3p.py[line:158] - INFO: Get a better model with acc 0.9050
+2023-10-31 16:28:23 - utils.py[line:40] - INFO: tn=4912, fp=568, fn=430, tp=5050
+2023-10-31 16:28:23 - utils.py[line:41] - INFO: y_pred: 0=5342 | 1=5618
+2023-10-31 16:28:23 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:28:23 - utils.py[line:43] - INFO: auc=0.9609|sn=0.9215|sp=0.8964|acc=0.9089|mcc=0.8181
+2023-10-31 16:28:23 - deepb3p.py[line:138] - INFO: training: Epoch-13/200 | loss=0.4018 | time=0.2414 min
+2023-10-31 16:28:24 - utils.py[line:40] - INFO: tn=1231, fp=136, fn=115, tp=1254
+2023-10-31 16:28:24 - utils.py[line:41] - INFO: y_pred: 0=1346 | 1=1390
+2023-10-31 16:28:24 - utils.py[line:42] - INFO: y_true: 0=1367 | 1=1369
+2023-10-31 16:28:24 - utils.py[line:43] - INFO: auc=0.9688|sn=0.9160|sp=0.9005|acc=0.9083|mcc=0.8166
+2023-10-31 16:28:24 - deepb3p.py[line:141] - INFO: validing: Epoch-13/200 | loss=0.4011 | time=0.0303 min
+2023-10-31 16:28:24 - deepb3p.py[line:158] - INFO: Get a better model with acc 0.9083
+2023-10-31 16:28:39 - utils.py[line:40] - INFO: tn=4890, fp=590, fn=430, tp=5050
+2023-10-31 16:28:39 - utils.py[line:41] - INFO: y_pred: 0=5320 | 1=5640
+2023-10-31 16:28:39 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:28:39 - utils.py[line:43] - INFO: auc=0.9588|sn=0.9215|sp=0.8923|acc=0.9069|mcc=0.8142
+2023-10-31 16:28:39 - deepb3p.py[line:138] - INFO: training: Epoch-14/200 | loss=0.4022 | time=0.2424 min
+2023-10-31 16:28:41 - utils.py[line:40] - INFO: tn=1211, fp=159, fn=91, tp=1275
+2023-10-31 16:28:41 - utils.py[line:41] - INFO: y_pred: 0=1302 | 1=1434
+2023-10-31 16:28:41 - utils.py[line:42] - INFO: y_true: 0=1370 | 1=1366
+2023-10-31 16:28:41 - utils.py[line:43] - INFO: auc=0.9690|sn=0.9334|sp=0.8839|acc=0.9086|mcc=0.8183
+2023-10-31 16:28:41 - deepb3p.py[line:141] - INFO: validing: Epoch-14/200 | loss=0.3989 | time=0.0393 min
+2023-10-31 16:28:41 - deepb3p.py[line:158] - INFO: Get a better model with acc 0.9086
+2023-10-31 16:28:55 - utils.py[line:40] - INFO: tn=4938, fp=542, fn=416, tp=5064
+2023-10-31 16:28:55 - utils.py[line:41] - INFO: y_pred: 0=5354 | 1=5606
+2023-10-31 16:28:55 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:28:55 - utils.py[line:43] - INFO: auc=0.9619|sn=0.9241|sp=0.9011|acc=0.9126|mcc=0.8254
+2023-10-31 16:28:55 - deepb3p.py[line:138] - INFO: training: Epoch-15/200 | loss=0.3981 | time=0.2326 min
+2023-10-31 16:28:58 - utils.py[line:40] - INFO: tn=1219, fp=149, fn=95, tp=1273
+2023-10-31 16:28:58 - utils.py[line:41] - INFO: y_pred: 0=1314 | 1=1422
+2023-10-31 16:28:58 - utils.py[line:42] - INFO: y_true: 0=1368 | 1=1368
+2023-10-31 16:28:58 - utils.py[line:43] - INFO: auc=0.9698|sn=0.9306|sp=0.8911|acc=0.9108|mcc=0.8223
+2023-10-31 16:28:58 - deepb3p.py[line:141] - INFO: validing: Epoch-15/200 | loss=0.3990 | time=0.0378 min
+2023-10-31 16:28:58 - deepb3p.py[line:158] - INFO: Get a better model with acc 0.9108
+2023-10-31 16:29:12 - utils.py[line:40] - INFO: tn=4966, fp=515, fn=430, tp=5049
+2023-10-31 16:29:12 - utils.py[line:41] - INFO: y_pred: 0=5396 | 1=5564
+2023-10-31 16:29:12 - utils.py[line:42] - INFO: y_true: 0=5481 | 1=5479
+2023-10-31 16:29:12 - utils.py[line:43] - INFO: auc=0.9611|sn=0.9215|sp=0.9060|acc=0.9138|mcc=0.8277
+2023-10-31 16:29:12 - deepb3p.py[line:138] - INFO: training: Epoch-16/200 | loss=0.3966 | time=0.2335 min
+2023-10-31 16:29:14 - utils.py[line:40] - INFO: tn=1205, fp=162, fn=87, tp=1282
+2023-10-31 16:29:14 - utils.py[line:41] - INFO: y_pred: 0=1292 | 1=1444
+2023-10-31 16:29:14 - utils.py[line:42] - INFO: y_true: 0=1367 | 1=1369
+2023-10-31 16:29:14 - utils.py[line:43] - INFO: auc=0.9689|sn=0.9364|sp=0.8815|acc=0.9090|mcc=0.8192
+2023-10-31 16:29:14 - deepb3p.py[line:141] - INFO: validing: Epoch-16/200 | loss=0.4031 | time=0.0370 min
+2023-10-31 16:29:28 - utils.py[line:40] - INFO: tn=4963, fp=517, fn=406, tp=5074
+2023-10-31 16:29:28 - utils.py[line:41] - INFO: y_pred: 0=5369 | 1=5591
+2023-10-31 16:29:28 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:29:28 - utils.py[line:43] - INFO: auc=0.9651|sn=0.9259|sp=0.9057|acc=0.9158|mcc=0.8317
+2023-10-31 16:29:28 - deepb3p.py[line:138] - INFO: training: Epoch-17/200 | loss=0.3946 | time=0.2357 min
+2023-10-31 16:29:30 - utils.py[line:40] - INFO: tn=1243, fp=124, fn=124, tp=1245
+2023-10-31 16:29:30 - utils.py[line:41] - INFO: y_pred: 0=1367 | 1=1369
+2023-10-31 16:29:30 - utils.py[line:42] - INFO: y_true: 0=1367 | 1=1369
+2023-10-31 16:29:30 - utils.py[line:43] - INFO: auc=0.9694|sn=0.9094|sp=0.9093|acc=0.9094|mcc=0.8187
+2023-10-31 16:29:30 - deepb3p.py[line:141] - INFO: validing: Epoch-17/200 | loss=0.4013 | time=0.0336 min
+2023-10-31 16:29:44 - utils.py[line:40] - INFO: tn=4966, fp=515, fn=387, tp=5092
+2023-10-31 16:29:44 - utils.py[line:41] - INFO: y_pred: 0=5353 | 1=5607
+2023-10-31 16:29:44 - utils.py[line:42] - INFO: y_true: 0=5481 | 1=5479
+2023-10-31 16:29:44 - utils.py[line:43] - INFO: auc=0.9650|sn=0.9294|sp=0.9060|acc=0.9177|mcc=0.8356
+2023-10-31 16:29:44 - deepb3p.py[line:138] - INFO: training: Epoch-18/200 | loss=0.3931 | time=0.2313 min
+2023-10-31 16:29:46 - utils.py[line:40] - INFO: tn=1180, fp=186, fn=70, tp=1300
+2023-10-31 16:29:46 - utils.py[line:41] - INFO: y_pred: 0=1250 | 1=1486
+2023-10-31 16:29:46 - utils.py[line:42] - INFO: y_true: 0=1366 | 1=1370
+2023-10-31 16:29:46 - utils.py[line:43] - INFO: auc=0.9687|sn=0.9489|sp=0.8638|acc=0.9064|mcc=0.8158
+2023-10-31 16:29:46 - deepb3p.py[line:141] - INFO: validing: Epoch-18/200 | loss=0.4051 | time=0.0350 min
+2023-10-31 16:29:59 - utils.py[line:40] - INFO: tn=4994, fp=487, fn=379, tp=5100
+2023-10-31 16:29:59 - utils.py[line:41] - INFO: y_pred: 0=5373 | 1=5587
+2023-10-31 16:29:59 - utils.py[line:42] - INFO: y_true: 0=5481 | 1=5479
+2023-10-31 16:29:59 - utils.py[line:43] - INFO: auc=0.9677|sn=0.9308|sp=0.9111|acc=0.9210|mcc=0.8421
+2023-10-31 16:29:59 - deepb3p.py[line:138] - INFO: training: Epoch-19/200 | loss=0.3898 | time=0.2079 min
+2023-10-31 16:30:01 - utils.py[line:40] - INFO: tn=1289, fp=80, fn=178, tp=1189
+2023-10-31 16:30:01 - utils.py[line:41] - INFO: y_pred: 0=1467 | 1=1269
+2023-10-31 16:30:01 - utils.py[line:42] - INFO: y_true: 0=1369 | 1=1367
+2023-10-31 16:30:01 - utils.py[line:43] - INFO: auc=0.9712|sn=0.8698|sp=0.9416|acc=0.9057|mcc=0.8135
+2023-10-31 16:30:01 - deepb3p.py[line:141] - INFO: validing: Epoch-19/200 | loss=0.4041 | time=0.0323 min
+2023-10-31 16:30:15 - utils.py[line:40] - INFO: tn=5038, fp=443, fn=370, tp=5109
+2023-10-31 16:30:15 - utils.py[line:41] - INFO: y_pred: 0=5408 | 1=5552
+2023-10-31 16:30:15 - utils.py[line:42] - INFO: y_true: 0=5481 | 1=5479
+2023-10-31 16:30:15 - utils.py[line:43] - INFO: auc=0.9690|sn=0.9325|sp=0.9192|acc=0.9258|mcc=0.8517
+2023-10-31 16:30:15 - deepb3p.py[line:138] - INFO: training: Epoch-20/200 | loss=0.3873 | time=0.2326 min
+2023-10-31 16:30:17 - utils.py[line:40] - INFO: tn=1201, fp=165, fn=79, tp=1291
+2023-10-31 16:30:17 - utils.py[line:41] - INFO: y_pred: 0=1280 | 1=1456
+2023-10-31 16:30:17 - utils.py[line:42] - INFO: y_true: 0=1366 | 1=1370
+2023-10-31 16:30:17 - utils.py[line:43] - INFO: auc=0.9705|sn=0.9423|sp=0.8792|acc=0.9108|mcc=0.8232
+2023-10-31 16:30:17 - deepb3p.py[line:141] - INFO: validing: Epoch-20/200 | loss=0.4008 | time=0.0373 min
+2023-10-31 16:30:17 - deepb3p.py[line:163] - INFO: validing acc has not improved for more than 5 steps in epoch 20, stop training
+2023-10-31 16:30:17 - deepb3p.py[line:167] - INFO: cv fold 5 for fold 1 done
+2023-10-31 16:30:17 - deepb3p.py[line:168] - INFO: Find best model, valid auc:0.970,  sn:0.931,  sp:0.891, acc:0.911, mcc:0.822
+2023-10-31 16:30:17 - utils.py[line:17] - INFO: set seed 2 for everything
+2023-10-31 16:30:17 - deepb3p.py[line:121] - INFO: begin train with fold 2
+2023-10-31 16:30:31 - utils.py[line:40] - INFO: tn=4110, fp=1369, fn=1071, tp=4410
+2023-10-31 16:30:31 - utils.py[line:41] - INFO: y_pred: 0=5181 | 1=5779
+2023-10-31 16:30:31 - utils.py[line:42] - INFO: y_true: 0=5479 | 1=5481
+2023-10-31 16:30:31 - utils.py[line:43] - INFO: auc=0.8430|sn=0.8046|sp=0.7501|acc=0.7774|mcc=0.5556
+2023-10-31 16:30:31 - deepb3p.py[line:138] - INFO: training: Epoch-1/200 | loss=0.5259 | time=0.2258 min
+2023-10-31 16:30:33 - utils.py[line:40] - INFO: tn=1193, fp=174, fn=217, tp=1152
+2023-10-31 16:30:33 - utils.py[line:41] - INFO: y_pred: 0=1410 | 1=1326
+2023-10-31 16:30:33 - utils.py[line:42] - INFO: y_true: 0=1367 | 1=1369
+2023-10-31 16:30:33 - utils.py[line:43] - INFO: auc=0.9343|sn=0.8415|sp=0.8727|acc=0.8571|mcc=0.7145
+2023-10-31 16:30:33 - deepb3p.py[line:141] - INFO: validing: Epoch-1/200 | loss=0.4500 | time=0.0370 min
+2023-10-31 16:30:33 - deepb3p.py[line:158] - INFO: Get a better model with acc 0.8571
+2023-10-31 16:30:47 - utils.py[line:40] - INFO: tn=4439, fp=1040, fn=826, tp=4655
+2023-10-31 16:30:47 - utils.py[line:41] - INFO: y_pred: 0=5265 | 1=5695
+2023-10-31 16:30:47 - utils.py[line:42] - INFO: y_true: 0=5479 | 1=5481
+2023-10-31 16:30:47 - utils.py[line:43] - INFO: auc=0.9011|sn=0.8493|sp=0.8102|acc=0.8297|mcc=0.6600
+2023-10-31 16:30:47 - deepb3p.py[line:138] - INFO: training: Epoch-2/200 | loss=0.4757 | time=0.2356 min
+2023-10-31 16:30:49 - utils.py[line:40] - INFO: tn=1208, fp=161, fn=212, tp=1155
+2023-10-31 16:30:49 - utils.py[line:41] - INFO: y_pred: 0=1420 | 1=1316
+2023-10-31 16:30:49 - utils.py[line:42] - INFO: y_true: 0=1369 | 1=1367
+2023-10-31 16:30:49 - utils.py[line:43] - INFO: auc=0.9406|sn=0.8449|sp=0.8824|acc=0.8637|mcc=0.7278
+2023-10-31 16:30:49 - deepb3p.py[line:141] - INFO: validing: Epoch-2/200 | loss=0.4413 | time=0.0370 min
+2023-10-31 16:30:49 - deepb3p.py[line:158] - INFO: Get a better model with acc 0.8637
+2023-10-31 16:31:03 - utils.py[line:40] - INFO: tn=4579, fp=900, fn=714, tp=4767
+2023-10-31 16:31:03 - utils.py[line:41] - INFO: y_pred: 0=5293 | 1=5667
+2023-10-31 16:31:03 - utils.py[line:42] - INFO: y_true: 0=5479 | 1=5481
+2023-10-31 16:31:03 - utils.py[line:43] - INFO: auc=0.9192|sn=0.8697|sp=0.8357|acc=0.8527|mcc=0.7059
+2023-10-31 16:31:03 - deepb3p.py[line:138] - INFO: training: Epoch-3/200 | loss=0.4544 | time=0.2261 min
+2023-10-31 16:31:05 - utils.py[line:40] - INFO: tn=1187, fp=183, fn=118, tp=1248
+2023-10-31 16:31:05 - utils.py[line:41] - INFO: y_pred: 0=1305 | 1=1431
+2023-10-31 16:31:05 - utils.py[line:42] - INFO: y_true: 0=1370 | 1=1366
+2023-10-31 16:31:05 - utils.py[line:43] - INFO: auc=0.9556|sn=0.9136|sp=0.8664|acc=0.8900|mcc=0.7809
+2023-10-31 16:31:05 - deepb3p.py[line:141] - INFO: validing: Epoch-3/200 | loss=0.4180 | time=0.0299 min
+2023-10-31 16:31:05 - deepb3p.py[line:158] - INFO: Get a better model with acc 0.8900
+2023-10-31 16:31:19 - utils.py[line:40] - INFO: tn=4640, fp=840, fn=632, tp=4848
+2023-10-31 16:31:19 - utils.py[line:41] - INFO: y_pred: 0=5272 | 1=5688
+2023-10-31 16:31:19 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:31:19 - utils.py[line:43] - INFO: auc=0.9304|sn=0.8847|sp=0.8467|acc=0.8657|mcc=0.7319
+2023-10-31 16:31:19 - deepb3p.py[line:138] - INFO: training: Epoch-4/200 | loss=0.4426 | time=0.2350 min
+2023-10-31 16:31:21 - utils.py[line:40] - INFO: tn=1204, fp=164, fn=215, tp=1153
+2023-10-31 16:31:21 - utils.py[line:41] - INFO: y_pred: 0=1419 | 1=1317
+2023-10-31 16:31:21 - utils.py[line:42] - INFO: y_true: 0=1368 | 1=1368
+2023-10-31 16:31:21 - utils.py[line:43] - INFO: auc=0.9405|sn=0.8428|sp=0.8801|acc=0.8615|mcc=0.7235
+2023-10-31 16:31:21 - deepb3p.py[line:141] - INFO: validing: Epoch-4/200 | loss=0.4436 | time=0.0366 min
+2023-10-31 16:31:35 - utils.py[line:40] - INFO: tn=4659, fp=820, fn=667, tp=4814
+2023-10-31 16:31:35 - utils.py[line:41] - INFO: y_pred: 0=5326 | 1=5634
+2023-10-31 16:31:35 - utils.py[line:42] - INFO: y_true: 0=5479 | 1=5481
+2023-10-31 16:31:35 - utils.py[line:43] - INFO: auc=0.9334|sn=0.8783|sp=0.8503|acc=0.8643|mcc=0.7289
+2023-10-31 16:31:35 - deepb3p.py[line:138] - INFO: training: Epoch-5/200 | loss=0.4416 | time=0.2245 min
+2023-10-31 16:31:37 - utils.py[line:40] - INFO: tn=1088, fp=279, fn=60, tp=1309
+2023-10-31 16:31:37 - utils.py[line:41] - INFO: y_pred: 0=1148 | 1=1588
+2023-10-31 16:31:37 - utils.py[line:42] - INFO: y_true: 0=1367 | 1=1369
+2023-10-31 16:31:37 - utils.py[line:43] - INFO: auc=0.9600|sn=0.9562|sp=0.7959|acc=0.8761|mcc=0.7620
+2023-10-31 16:31:37 - deepb3p.py[line:141] - INFO: validing: Epoch-5/200 | loss=0.4279 | time=0.0376 min
+2023-10-31 16:31:50 - utils.py[line:40] - INFO: tn=4716, fp=763, fn=545, tp=4936
+2023-10-31 16:31:50 - utils.py[line:41] - INFO: y_pred: 0=5261 | 1=5699
+2023-10-31 16:31:50 - utils.py[line:42] - INFO: y_true: 0=5479 | 1=5481
+2023-10-31 16:31:50 - utils.py[line:43] - INFO: auc=0.9428|sn=0.9006|sp=0.8607|acc=0.8807|mcc=0.7619
+2023-10-31 16:31:50 - deepb3p.py[line:138] - INFO: training: Epoch-6/200 | loss=0.4276 | time=0.2247 min
+2023-10-31 16:31:52 - utils.py[line:40] - INFO: tn=1128, fp=240, fn=78, tp=1290
+2023-10-31 16:31:52 - utils.py[line:41] - INFO: y_pred: 0=1206 | 1=1530
+2023-10-31 16:31:52 - utils.py[line:42] - INFO: y_true: 0=1368 | 1=1368
+2023-10-31 16:31:52 - utils.py[line:43] - INFO: auc=0.9532|sn=0.9430|sp=0.8246|acc=0.8838|mcc=0.7730
+2023-10-31 16:31:52 - deepb3p.py[line:141] - INFO: validing: Epoch-6/200 | loss=0.4261 | time=0.0292 min
+2023-10-31 16:32:06 - utils.py[line:40] - INFO: tn=4746, fp=734, fn=542, tp=4938
+2023-10-31 16:32:06 - utils.py[line:41] - INFO: y_pred: 0=5288 | 1=5672
+2023-10-31 16:32:06 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:32:06 - utils.py[line:43] - INFO: auc=0.9456|sn=0.9011|sp=0.8661|acc=0.8836|mcc=0.7676
+2023-10-31 16:32:06 - deepb3p.py[line:138] - INFO: training: Epoch-7/200 | loss=0.4254 | time=0.2328 min
+2023-10-31 16:32:08 - utils.py[line:40] - INFO: tn=1279, fp=91, fn=268, tp=1098
+2023-10-31 16:32:08 - utils.py[line:41] - INFO: y_pred: 0=1547 | 1=1189
+2023-10-31 16:32:08 - utils.py[line:42] - INFO: y_true: 0=1370 | 1=1366
+2023-10-31 16:32:08 - utils.py[line:43] - INFO: auc=0.9574|sn=0.8038|sp=0.9336|acc=0.8688|mcc=0.7438
+2023-10-31 16:32:08 - deepb3p.py[line:141] - INFO: validing: Epoch-7/200 | loss=0.4348 | time=0.0376 min
+2023-10-31 16:32:22 - utils.py[line:40] - INFO: tn=4769, fp=710, fn=518, tp=4963
+2023-10-31 16:32:22 - utils.py[line:41] - INFO: y_pred: 0=5287 | 1=5673
+2023-10-31 16:32:22 - utils.py[line:42] - INFO: y_true: 0=5479 | 1=5481
+2023-10-31 16:32:22 - utils.py[line:43] - INFO: auc=0.9486|sn=0.9055|sp=0.8704|acc=0.8880|mcc=0.7764
+2023-10-31 16:32:22 - deepb3p.py[line:138] - INFO: training: Epoch-8/200 | loss=0.4206 | time=0.2217 min
+2023-10-31 16:32:24 - utils.py[line:40] - INFO: tn=1130, fp=237, fn=57, tp=1312
+2023-10-31 16:32:24 - utils.py[line:41] - INFO: y_pred: 0=1187 | 1=1549
+2023-10-31 16:32:24 - utils.py[line:42] - INFO: y_true: 0=1367 | 1=1369
+2023-10-31 16:32:24 - utils.py[line:43] - INFO: auc=0.9608|sn=0.9584|sp=0.8266|acc=0.8925|mcc=0.7920
+2023-10-31 16:32:24 - deepb3p.py[line:141] - INFO: validing: Epoch-8/200 | loss=0.4167 | time=0.0373 min
+2023-10-31 16:32:24 - deepb3p.py[line:158] - INFO: Get a better model with acc 0.8925
+2023-10-31 16:32:38 - utils.py[line:40] - INFO: tn=4807, fp=673, fn=504, tp=4976
+2023-10-31 16:32:38 - utils.py[line:41] - INFO: y_pred: 0=5311 | 1=5649
+2023-10-31 16:32:38 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:32:38 - utils.py[line:43] - INFO: auc=0.9489|sn=0.9080|sp=0.8772|acc=0.8926|mcc=0.7856
+2023-10-31 16:32:38 - deepb3p.py[line:138] - INFO: training: Epoch-9/200 | loss=0.4169 | time=0.2241 min
+2023-10-31 16:32:40 - utils.py[line:40] - INFO: tn=1101, fp=267, fn=45, tp=1323
+2023-10-31 16:32:40 - utils.py[line:41] - INFO: y_pred: 0=1146 | 1=1590
+2023-10-31 16:32:40 - utils.py[line:42] - INFO: y_true: 0=1368 | 1=1368
+2023-10-31 16:32:40 - utils.py[line:43] - INFO: auc=0.9637|sn=0.9671|sp=0.8048|acc=0.8860|mcc=0.7823
+2023-10-31 16:32:40 - deepb3p.py[line:141] - INFO: validing: Epoch-9/200 | loss=0.4215 | time=0.0377 min
+2023-10-31 16:32:54 - utils.py[line:40] - INFO: tn=4867, fp=613, fn=521, tp=4959
+2023-10-31 16:32:54 - utils.py[line:41] - INFO: y_pred: 0=5388 | 1=5572
+2023-10-31 16:32:54 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:32:54 - utils.py[line:43] - INFO: auc=0.9536|sn=0.9049|sp=0.8881|acc=0.8965|mcc=0.7932
+2023-10-31 16:32:54 - deepb3p.py[line:138] - INFO: training: Epoch-10/200 | loss=0.4137 | time=0.2376 min
+2023-10-31 16:32:56 - utils.py[line:40] - INFO: tn=1210, fp=158, fn=84, tp=1284
+2023-10-31 16:32:56 - utils.py[line:41] - INFO: y_pred: 0=1294 | 1=1442
+2023-10-31 16:32:56 - utils.py[line:42] - INFO: y_true: 0=1368 | 1=1368
+2023-10-31 16:32:56 - utils.py[line:43] - INFO: auc=0.9657|sn=0.9386|sp=0.8845|acc=0.9115|mcc=0.8243
+2023-10-31 16:32:56 - deepb3p.py[line:141] - INFO: validing: Epoch-10/200 | loss=0.4005 | time=0.0332 min
+2023-10-31 16:32:56 - deepb3p.py[line:158] - INFO: Get a better model with acc 0.9115
+2023-10-31 16:33:10 - utils.py[line:40] - INFO: tn=4834, fp=646, fn=461, tp=5019
+2023-10-31 16:33:10 - utils.py[line:41] - INFO: y_pred: 0=5295 | 1=5665
+2023-10-31 16:33:10 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:33:10 - utils.py[line:43] - INFO: auc=0.9565|sn=0.9159|sp=0.8821|acc=0.8990|mcc=0.7984
+2023-10-31 16:33:10 - deepb3p.py[line:138] - INFO: training: Epoch-11/200 | loss=0.4103 | time=0.2236 min
+2023-10-31 16:33:12 - utils.py[line:40] - INFO: tn=1236, fp=135, fn=105, tp=1260
+2023-10-31 16:33:12 - utils.py[line:41] - INFO: y_pred: 0=1341 | 1=1395
+2023-10-31 16:33:12 - utils.py[line:42] - INFO: y_true: 0=1371 | 1=1365
+2023-10-31 16:33:12 - utils.py[line:43] - INFO: auc=0.9674|sn=0.9231|sp=0.9015|acc=0.9123|mcc=0.8248
+2023-10-31 16:33:12 - deepb3p.py[line:141] - INFO: validing: Epoch-11/200 | loss=0.4004 | time=0.0352 min
+2023-10-31 16:33:12 - deepb3p.py[line:158] - INFO: Get a better model with acc 0.9123
+2023-10-31 16:33:25 - utils.py[line:40] - INFO: tn=4872, fp=607, fn=487, tp=4994
+2023-10-31 16:33:25 - utils.py[line:41] - INFO: y_pred: 0=5359 | 1=5601
+2023-10-31 16:33:25 - utils.py[line:42] - INFO: y_true: 0=5479 | 1=5481
+2023-10-31 16:33:25 - utils.py[line:43] - INFO: auc=0.9563|sn=0.9111|sp=0.8892|acc=0.9002|mcc=0.8006
+2023-10-31 16:33:25 - deepb3p.py[line:138] - INFO: training: Epoch-12/200 | loss=0.4099 | time=0.2153 min
+2023-10-31 16:33:27 - utils.py[line:40] - INFO: tn=1173, fp=194, fn=59, tp=1310
+2023-10-31 16:33:27 - utils.py[line:41] - INFO: y_pred: 0=1232 | 1=1504
+2023-10-31 16:33:27 - utils.py[line:42] - INFO: y_true: 0=1367 | 1=1369
+2023-10-31 16:33:27 - utils.py[line:43] - INFO: auc=0.9630|sn=0.9569|sp=0.8581|acc=0.9075|mcc=0.8190
+2023-10-31 16:33:27 - deepb3p.py[line:141] - INFO: validing: Epoch-12/200 | loss=0.4052 | time=0.0372 min
+2023-10-31 16:33:40 - utils.py[line:40] - INFO: tn=4868, fp=612, fn=474, tp=5006
+2023-10-31 16:33:40 - utils.py[line:41] - INFO: y_pred: 0=5342 | 1=5618
+2023-10-31 16:33:40 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:33:40 - utils.py[line:43] - INFO: auc=0.9581|sn=0.9135|sp=0.8883|acc=0.9009|mcc=0.8021
+2023-10-31 16:33:40 - deepb3p.py[line:138] - INFO: training: Epoch-13/200 | loss=0.4079 | time=0.2189 min
+2023-10-31 16:33:43 - utils.py[line:40] - INFO: tn=1184, fp=184, fn=65, tp=1303
+2023-10-31 16:33:43 - utils.py[line:41] - INFO: y_pred: 0=1249 | 1=1487
+2023-10-31 16:33:43 - utils.py[line:42] - INFO: y_true: 0=1368 | 1=1368
+2023-10-31 16:33:43 - utils.py[line:43] - INFO: auc=0.9701|sn=0.9525|sp=0.8655|acc=0.9090|mcc=0.8211
+2023-10-31 16:33:43 - deepb3p.py[line:141] - INFO: validing: Epoch-13/200 | loss=0.4003 | time=0.0379 min
+2023-10-31 16:33:57 - utils.py[line:40] - INFO: tn=4890, fp=589, fn=425, tp=5056
+2023-10-31 16:33:57 - utils.py[line:41] - INFO: y_pred: 0=5315 | 1=5645
+2023-10-31 16:33:57 - utils.py[line:42] - INFO: y_true: 0=5479 | 1=5481
+2023-10-31 16:33:57 - utils.py[line:43] - INFO: auc=0.9615|sn=0.9225|sp=0.8925|acc=0.9075|mcc=0.8153
+2023-10-31 16:33:57 - deepb3p.py[line:138] - INFO: training: Epoch-14/200 | loss=0.4026 | time=0.2336 min
+2023-10-31 16:33:59 - utils.py[line:40] - INFO: tn=1275, fp=91, fn=136, tp=1234
+2023-10-31 16:33:59 - utils.py[line:41] - INFO: y_pred: 0=1411 | 1=1325
+2023-10-31 16:33:59 - utils.py[line:42] - INFO: y_true: 0=1366 | 1=1370
+2023-10-31 16:33:59 - utils.py[line:43] - INFO: auc=0.9691|sn=0.9007|sp=0.9334|acc=0.9170|mcc=0.8345
+2023-10-31 16:33:59 - deepb3p.py[line:141] - INFO: validing: Epoch-14/200 | loss=0.3971 | time=0.0360 min
+2023-10-31 16:33:59 - deepb3p.py[line:158] - INFO: Get a better model with acc 0.9170
+2023-10-31 16:34:13 - utils.py[line:40] - INFO: tn=4926, fp=554, fn=426, tp=5054
+2023-10-31 16:34:13 - utils.py[line:41] - INFO: y_pred: 0=5352 | 1=5608
+2023-10-31 16:34:13 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:34:13 - utils.py[line:43] - INFO: auc=0.9625|sn=0.9223|sp=0.8989|acc=0.9106|mcc=0.8214
+2023-10-31 16:34:13 - deepb3p.py[line:138] - INFO: training: Epoch-15/200 | loss=0.3999 | time=0.2359 min
+2023-10-31 16:34:15 - utils.py[line:40] - INFO: tn=1270, fp=98, fn=130, tp=1238
+2023-10-31 16:34:15 - utils.py[line:41] - INFO: y_pred: 0=1400 | 1=1336
+2023-10-31 16:34:15 - utils.py[line:42] - INFO: y_true: 0=1368 | 1=1368
+2023-10-31 16:34:15 - utils.py[line:43] - INFO: auc=0.9695|sn=0.9050|sp=0.9284|acc=0.9167|mcc=0.8336
+2023-10-31 16:34:15 - deepb3p.py[line:141] - INFO: validing: Epoch-15/200 | loss=0.3947 | time=0.0381 min
+2023-10-31 16:34:30 - utils.py[line:40] - INFO: tn=4954, fp=525, fn=414, tp=5067
+2023-10-31 16:34:30 - utils.py[line:41] - INFO: y_pred: 0=5368 | 1=5592
+2023-10-31 16:34:30 - utils.py[line:42] - INFO: y_true: 0=5479 | 1=5481
+2023-10-31 16:34:30 - utils.py[line:43] - INFO: auc=0.9655|sn=0.9245|sp=0.9042|acc=0.9143|mcc=0.8288
+2023-10-31 16:34:30 - deepb3p.py[line:138] - INFO: training: Epoch-16/200 | loss=0.3973 | time=0.2378 min
+2023-10-31 16:34:31 - utils.py[line:40] - INFO: tn=1227, fp=141, fn=85, tp=1283
+2023-10-31 16:34:31 - utils.py[line:41] - INFO: y_pred: 0=1312 | 1=1424
+2023-10-31 16:34:31 - utils.py[line:42] - INFO: y_true: 0=1368 | 1=1368
+2023-10-31 16:34:31 - utils.py[line:43] - INFO: auc=0.9708|sn=0.9379|sp=0.8969|acc=0.9174|mcc=0.8355
+2023-10-31 16:34:31 - deepb3p.py[line:141] - INFO: validing: Epoch-16/200 | loss=0.3963 | time=0.0279 min
+2023-10-31 16:34:31 - deepb3p.py[line:158] - INFO: Get a better model with acc 0.9174
+2023-10-31 16:34:45 - utils.py[line:40] - INFO: tn=4942, fp=537, fn=394, tp=5087
+2023-10-31 16:34:45 - utils.py[line:41] - INFO: y_pred: 0=5336 | 1=5624
+2023-10-31 16:34:45 - utils.py[line:42] - INFO: y_true: 0=5479 | 1=5481
+2023-10-31 16:34:45 - utils.py[line:43] - INFO: auc=0.9645|sn=0.9281|sp=0.9020|acc=0.9151|mcc=0.8304
+2023-10-31 16:34:45 - deepb3p.py[line:138] - INFO: training: Epoch-17/200 | loss=0.3960 | time=0.2272 min
+2023-10-31 16:34:47 - utils.py[line:40] - INFO: tn=1230, fp=137, fn=91, tp=1278
+2023-10-31 16:34:47 - utils.py[line:41] - INFO: y_pred: 0=1321 | 1=1415
+2023-10-31 16:34:47 - utils.py[line:42] - INFO: y_true: 0=1367 | 1=1369
+2023-10-31 16:34:47 - utils.py[line:43] - INFO: auc=0.9714|sn=0.9335|sp=0.8998|acc=0.9167|mcc=0.8338
+2023-10-31 16:34:47 - deepb3p.py[line:141] - INFO: validing: Epoch-17/200 | loss=0.3951 | time=0.0374 min
+2023-10-31 16:35:01 - utils.py[line:40] - INFO: tn=4952, fp=528, fn=367, tp=5113
+2023-10-31 16:35:01 - utils.py[line:41] - INFO: y_pred: 0=5319 | 1=5641
+2023-10-31 16:35:01 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:35:01 - utils.py[line:43] - INFO: auc=0.9665|sn=0.9330|sp=0.9036|acc=0.9183|mcc=0.8370
+2023-10-31 16:35:01 - deepb3p.py[line:138] - INFO: training: Epoch-18/200 | loss=0.3924 | time=0.2236 min
+2023-10-31 16:35:03 - utils.py[line:40] - INFO: tn=1262, fp=108, fn=117, tp=1249
+2023-10-31 16:35:03 - utils.py[line:41] - INFO: y_pred: 0=1379 | 1=1357
+2023-10-31 16:35:03 - utils.py[line:42] - INFO: y_true: 0=1370 | 1=1366
+2023-10-31 16:35:03 - utils.py[line:43] - INFO: auc=0.9698|sn=0.9143|sp=0.9212|acc=0.9178|mcc=0.8355
+2023-10-31 16:35:03 - deepb3p.py[line:141] - INFO: validing: Epoch-18/200 | loss=0.3966 | time=0.0381 min
+2023-10-31 16:35:03 - deepb3p.py[line:158] - INFO: Get a better model with acc 0.9178
+2023-10-31 16:35:17 - utils.py[line:40] - INFO: tn=4964, fp=515, fn=373, tp=5108
+2023-10-31 16:35:17 - utils.py[line:41] - INFO: y_pred: 0=5337 | 1=5623
+2023-10-31 16:35:17 - utils.py[line:42] - INFO: y_true: 0=5479 | 1=5481
+2023-10-31 16:35:17 - utils.py[line:43] - INFO: auc=0.9673|sn=0.9319|sp=0.9060|acc=0.9190|mcc=0.8382
+2023-10-31 16:35:17 - deepb3p.py[line:138] - INFO: training: Epoch-19/200 | loss=0.3924 | time=0.2317 min
+2023-10-31 16:35:19 - utils.py[line:40] - INFO: tn=1246, fp=123, fn=96, tp=1271
+2023-10-31 16:35:19 - utils.py[line:41] - INFO: y_pred: 0=1342 | 1=1394
+2023-10-31 16:35:19 - utils.py[line:42] - INFO: y_true: 0=1369 | 1=1367
+2023-10-31 16:35:19 - utils.py[line:43] - INFO: auc=0.9708|sn=0.9298|sp=0.9102|acc=0.9200|mcc=0.8401
+2023-10-31 16:35:19 - deepb3p.py[line:141] - INFO: validing: Epoch-19/200 | loss=0.3919 | time=0.0347 min
+2023-10-31 16:35:19 - deepb3p.py[line:158] - INFO: Get a better model with acc 0.9200
+2023-10-31 16:35:33 - utils.py[line:40] - INFO: tn=4991, fp=488, fn=349, tp=5132
+2023-10-31 16:35:33 - utils.py[line:41] - INFO: y_pred: 0=5340 | 1=5620
+2023-10-31 16:35:33 - utils.py[line:42] - INFO: y_true: 0=5479 | 1=5481
+2023-10-31 16:35:33 - utils.py[line:43] - INFO: auc=0.9692|sn=0.9363|sp=0.9109|acc=0.9236|mcc=0.8475
+2023-10-31 16:35:33 - deepb3p.py[line:138] - INFO: training: Epoch-20/200 | loss=0.3888 | time=0.2290 min
+2023-10-31 16:35:35 - utils.py[line:40] - INFO: tn=1239, fp=131, fn=99, tp=1267
+2023-10-31 16:35:35 - utils.py[line:41] - INFO: y_pred: 0=1338 | 1=1398
+2023-10-31 16:35:35 - utils.py[line:42] - INFO: y_true: 0=1370 | 1=1366
+2023-10-31 16:35:35 - utils.py[line:43] - INFO: auc=0.9717|sn=0.9275|sp=0.9044|acc=0.9159|mcc=0.8321
+2023-10-31 16:35:35 - deepb3p.py[line:141] - INFO: validing: Epoch-20/200 | loss=0.3959 | time=0.0363 min
+2023-10-31 16:35:49 - utils.py[line:40] - INFO: tn=5030, fp=449, fn=364, tp=5117
+2023-10-31 16:35:49 - utils.py[line:41] - INFO: y_pred: 0=5394 | 1=5566
+2023-10-31 16:35:49 - utils.py[line:42] - INFO: y_true: 0=5479 | 1=5481
+2023-10-31 16:35:49 - utils.py[line:43] - INFO: auc=0.9720|sn=0.9336|sp=0.9181|acc=0.9258|mcc=0.8517
+2023-10-31 16:35:49 - deepb3p.py[line:138] - INFO: training: Epoch-21/200 | loss=0.3874 | time=0.2251 min
+2023-10-31 16:35:51 - utils.py[line:40] - INFO: tn=1281, fp=87, fn=145, tp=1223
+2023-10-31 16:35:51 - utils.py[line:41] - INFO: y_pred: 0=1426 | 1=1310
+2023-10-31 16:35:51 - utils.py[line:42] - INFO: y_true: 0=1368 | 1=1368
+2023-10-31 16:35:51 - utils.py[line:43] - INFO: auc=0.9733|sn=0.8940|sp=0.9364|acc=0.9152|mcc=0.8312
+2023-10-31 16:35:51 - deepb3p.py[line:141] - INFO: validing: Epoch-21/200 | loss=0.3964 | time=0.0369 min
+2023-10-31 16:36:04 - utils.py[line:40] - INFO: tn=5038, fp=441, fn=346, tp=5135
+2023-10-31 16:36:04 - utils.py[line:41] - INFO: y_pred: 0=5384 | 1=5576
+2023-10-31 16:36:04 - utils.py[line:42] - INFO: y_true: 0=5479 | 1=5481
+2023-10-31 16:36:04 - utils.py[line:43] - INFO: auc=0.9730|sn=0.9369|sp=0.9195|acc=0.9282|mcc=0.8565
+2023-10-31 16:36:04 - deepb3p.py[line:138] - INFO: training: Epoch-22/200 | loss=0.3844 | time=0.2271 min
+2023-10-31 16:36:06 - utils.py[line:40] - INFO: tn=1255, fp=115, fn=121, tp=1245
+2023-10-31 16:36:06 - utils.py[line:41] - INFO: y_pred: 0=1376 | 1=1360
+2023-10-31 16:36:06 - utils.py[line:42] - INFO: y_true: 0=1370 | 1=1366
+2023-10-31 16:36:06 - utils.py[line:43] - INFO: auc=0.9721|sn=0.9114|sp=0.9161|acc=0.9137|mcc=0.8275
+2023-10-31 16:36:06 - deepb3p.py[line:141] - INFO: validing: Epoch-22/200 | loss=0.3973 | time=0.0288 min
+2023-10-31 16:36:20 - utils.py[line:40] - INFO: tn=5025, fp=455, fn=321, tp=5159
+2023-10-31 16:36:20 - utils.py[line:41] - INFO: y_pred: 0=5346 | 1=5614
+2023-10-31 16:36:20 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:36:20 - utils.py[line:43] - INFO: auc=0.9730|sn=0.9414|sp=0.9170|acc=0.9292|mcc=0.8587
+2023-10-31 16:36:20 - deepb3p.py[line:138] - INFO: training: Epoch-23/200 | loss=0.3832 | time=0.2331 min
+2023-10-31 16:36:22 - utils.py[line:40] - INFO: tn=1257, fp=110, fn=112, tp=1257
+2023-10-31 16:36:22 - utils.py[line:41] - INFO: y_pred: 0=1369 | 1=1367
+2023-10-31 16:36:22 - utils.py[line:42] - INFO: y_true: 0=1367 | 1=1369
+2023-10-31 16:36:22 - utils.py[line:43] - INFO: auc=0.9725|sn=0.9182|sp=0.9195|acc=0.9189|mcc=0.8377
+2023-10-31 16:36:22 - deepb3p.py[line:141] - INFO: validing: Epoch-23/200 | loss=0.3947 | time=0.0369 min
+2023-10-31 16:36:35 - utils.py[line:40] - INFO: tn=5045, fp=434, fn=309, tp=5172
+2023-10-31 16:36:35 - utils.py[line:41] - INFO: y_pred: 0=5354 | 1=5606
+2023-10-31 16:36:35 - utils.py[line:42] - INFO: y_true: 0=5479 | 1=5481
+2023-10-31 16:36:35 - utils.py[line:43] - INFO: auc=0.9743|sn=0.9436|sp=0.9208|acc=0.9322|mcc=0.8646
+2023-10-31 16:36:35 - deepb3p.py[line:138] - INFO: training: Epoch-24/200 | loss=0.3803 | time=0.2150 min
+2023-10-31 16:36:38 - utils.py[line:40] - INFO: tn=1260, fp=107, fn=98, tp=1271
+2023-10-31 16:36:38 - utils.py[line:41] - INFO: y_pred: 0=1358 | 1=1378
+2023-10-31 16:36:38 - utils.py[line:42] - INFO: y_true: 0=1367 | 1=1369
+2023-10-31 16:36:38 - utils.py[line:43] - INFO: auc=0.9744|sn=0.9284|sp=0.9217|acc=0.9251|mcc=0.8502
+2023-10-31 16:36:38 - deepb3p.py[line:141] - INFO: validing: Epoch-24/200 | loss=0.3883 | time=0.0375 min
+2023-10-31 16:36:38 - deepb3p.py[line:158] - INFO: Get a better model with acc 0.9251
+2023-10-31 16:36:51 - utils.py[line:40] - INFO: tn=5101, fp=379, fn=305, tp=5175
+2023-10-31 16:36:51 - utils.py[line:41] - INFO: y_pred: 0=5406 | 1=5554
+2023-10-31 16:36:51 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:36:51 - utils.py[line:43] - INFO: auc=0.9762|sn=0.9443|sp=0.9308|acc=0.9376|mcc=0.8753
+2023-10-31 16:36:51 - deepb3p.py[line:138] - INFO: training: Epoch-25/200 | loss=0.3762 | time=0.2278 min
+2023-10-31 16:36:54 - utils.py[line:40] - INFO: tn=1250, fp=117, fn=115, tp=1254
+2023-10-31 16:36:54 - utils.py[line:41] - INFO: y_pred: 0=1365 | 1=1371
+2023-10-31 16:36:54 - utils.py[line:42] - INFO: y_true: 0=1367 | 1=1369
+2023-10-31 16:36:54 - utils.py[line:43] - INFO: auc=0.9714|sn=0.9160|sp=0.9144|acc=0.9152|mcc=0.8304
+2023-10-31 16:36:54 - deepb3p.py[line:141] - INFO: validing: Epoch-25/200 | loss=0.3945 | time=0.0372 min
+2023-10-31 16:37:08 - utils.py[line:40] - INFO: tn=5084, fp=395, fn=277, tp=5204
+2023-10-31 16:37:08 - utils.py[line:41] - INFO: y_pred: 0=5361 | 1=5599
+2023-10-31 16:37:08 - utils.py[line:42] - INFO: y_true: 0=5479 | 1=5481
+2023-10-31 16:37:08 - utils.py[line:43] - INFO: auc=0.9760|sn=0.9495|sp=0.9279|acc=0.9387|mcc=0.8776
+2023-10-31 16:37:08 - deepb3p.py[line:138] - INFO: training: Epoch-26/200 | loss=0.3748 | time=0.2338 min
+2023-10-31 16:37:10 - utils.py[line:40] - INFO: tn=1271, fp=97, fn=126, tp=1242
+2023-10-31 16:37:10 - utils.py[line:41] - INFO: y_pred: 0=1397 | 1=1339
+2023-10-31 16:37:10 - utils.py[line:42] - INFO: y_true: 0=1368 | 1=1368
+2023-10-31 16:37:10 - utils.py[line:43] - INFO: auc=0.9700|sn=0.9079|sp=0.9291|acc=0.9185|mcc=0.8372
+2023-10-31 16:37:10 - deepb3p.py[line:141] - INFO: validing: Epoch-26/200 | loss=0.3937 | time=0.0299 min
+2023-10-31 16:37:23 - utils.py[line:40] - INFO: tn=5127, fp=353, fn=300, tp=5180
+2023-10-31 16:37:23 - utils.py[line:41] - INFO: y_pred: 0=5427 | 1=5533
+2023-10-31 16:37:23 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:37:23 - utils.py[line:43] - INFO: auc=0.9778|sn=0.9453|sp=0.9356|acc=0.9404|mcc=0.8809
+2023-10-31 16:37:23 - deepb3p.py[line:138] - INFO: training: Epoch-27/200 | loss=0.3728 | time=0.2184 min
+2023-10-31 16:37:25 - utils.py[line:40] - INFO: tn=1291, fp=78, fn=144, tp=1223
+2023-10-31 16:37:25 - utils.py[line:41] - INFO: y_pred: 0=1435 | 1=1301
+2023-10-31 16:37:25 - utils.py[line:42] - INFO: y_true: 0=1369 | 1=1367
+2023-10-31 16:37:25 - utils.py[line:43] - INFO: auc=0.9746|sn=0.8947|sp=0.9430|acc=0.9189|mcc=0.8387
+2023-10-31 16:37:25 - deepb3p.py[line:141] - INFO: validing: Epoch-27/200 | loss=0.3934 | time=0.0377 min
+2023-10-31 16:37:38 - utils.py[line:40] - INFO: tn=5080, fp=400, fn=266, tp=5214
+2023-10-31 16:37:38 - utils.py[line:41] - INFO: y_pred: 0=5346 | 1=5614
+2023-10-31 16:37:38 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:37:38 - utils.py[line:43] - INFO: auc=0.9779|sn=0.9515|sp=0.9270|acc=0.9392|mcc=0.8787
+2023-10-31 16:37:38 - deepb3p.py[line:138] - INFO: training: Epoch-28/200 | loss=0.3727 | time=0.2189 min
+2023-10-31 16:37:40 - utils.py[line:40] - INFO: tn=1216, fp=151, fn=76, tp=1293
+2023-10-31 16:37:40 - utils.py[line:41] - INFO: y_pred: 0=1292 | 1=1444
+2023-10-31 16:37:40 - utils.py[line:42] - INFO: y_true: 0=1367 | 1=1369
+2023-10-31 16:37:40 - utils.py[line:43] - INFO: auc=0.9727|sn=0.9445|sp=0.8895|acc=0.9170|mcc=0.8353
+2023-10-31 16:37:40 - deepb3p.py[line:141] - INFO: validing: Epoch-28/200 | loss=0.3953 | time=0.0379 min
+2023-10-31 16:37:55 - utils.py[line:40] - INFO: tn=5136, fp=343, fn=245, tp=5236
+2023-10-31 16:37:55 - utils.py[line:41] - INFO: y_pred: 0=5381 | 1=5579
+2023-10-31 16:37:55 - utils.py[line:42] - INFO: y_true: 0=5479 | 1=5481
+2023-10-31 16:37:55 - utils.py[line:43] - INFO: auc=0.9819|sn=0.9553|sp=0.9374|acc=0.9464|mcc=0.8928
+2023-10-31 16:37:55 - deepb3p.py[line:138] - INFO: training: Epoch-29/200 | loss=0.3672 | time=0.2447 min
+2023-10-31 16:37:57 - utils.py[line:40] - INFO: tn=1202, fp=166, fn=65, tp=1303
+2023-10-31 16:37:57 - utils.py[line:41] - INFO: y_pred: 0=1267 | 1=1469
+2023-10-31 16:37:57 - utils.py[line:42] - INFO: y_true: 0=1368 | 1=1368
+2023-10-31 16:37:57 - utils.py[line:43] - INFO: auc=0.9724|sn=0.9525|sp=0.8787|acc=0.9156|mcc=0.8334
+2023-10-31 16:37:57 - deepb3p.py[line:141] - INFO: validing: Epoch-29/200 | loss=0.3962 | time=0.0351 min
+2023-10-31 16:37:57 - deepb3p.py[line:163] - INFO: validing acc has not improved for more than 5 steps in epoch 29, stop training
+2023-10-31 16:37:57 - deepb3p.py[line:167] - INFO: cv fold 5 for fold 2 done
+2023-10-31 16:37:57 - deepb3p.py[line:168] - INFO: Find best model, valid auc:0.974,  sn:0.928,  sp:0.922, acc:0.925, mcc:0.850
+2023-10-31 16:37:57 - utils.py[line:17] - INFO: set seed 3 for everything
+2023-10-31 16:37:57 - deepb3p.py[line:121] - INFO: begin train with fold 3
+2023-10-31 16:38:11 - utils.py[line:40] - INFO: tn=4116, fp=1365, fn=1048, tp=4431
+2023-10-31 16:38:11 - utils.py[line:41] - INFO: y_pred: 0=5164 | 1=5796
+2023-10-31 16:38:11 - utils.py[line:42] - INFO: y_true: 0=5481 | 1=5479
+2023-10-31 16:38:11 - utils.py[line:43] - INFO: auc=0.8531|sn=0.8087|sp=0.7510|acc=0.7798|mcc=0.5606
+2023-10-31 16:38:11 - deepb3p.py[line:138] - INFO: training: Epoch-1/200 | loss=0.5202 | time=0.2256 min
+2023-10-31 16:38:13 - utils.py[line:40] - INFO: tn=1163, fp=205, fn=163, tp=1205
+2023-10-31 16:38:13 - utils.py[line:41] - INFO: y_pred: 0=1326 | 1=1410
+2023-10-31 16:38:13 - utils.py[line:42] - INFO: y_true: 0=1368 | 1=1368
+2023-10-31 16:38:13 - utils.py[line:43] - INFO: auc=0.9354|sn=0.8808|sp=0.8501|acc=0.8655|mcc=0.7313
+2023-10-31 16:38:13 - deepb3p.py[line:141] - INFO: validing: Epoch-1/200 | loss=0.4444 | time=0.0341 min
+2023-10-31 16:38:13 - deepb3p.py[line:158] - INFO: Get a better model with acc 0.8655
+2023-10-31 16:38:27 - utils.py[line:40] - INFO: tn=4482, fp=998, fn=819, tp=4661
+2023-10-31 16:38:27 - utils.py[line:41] - INFO: y_pred: 0=5301 | 1=5659
+2023-10-31 16:38:27 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:38:27 - utils.py[line:43] - INFO: auc=0.9073|sn=0.8505|sp=0.8179|acc=0.8342|mcc=0.6688
+2023-10-31 16:38:27 - deepb3p.py[line:138] - INFO: training: Epoch-2/200 | loss=0.4715 | time=0.2383 min
+2023-10-31 16:38:29 - utils.py[line:40] - INFO: tn=1201, fp=167, fn=227, tp=1141
+2023-10-31 16:38:29 - utils.py[line:41] - INFO: y_pred: 0=1428 | 1=1308
+2023-10-31 16:38:29 - utils.py[line:42] - INFO: y_true: 0=1368 | 1=1368
+2023-10-31 16:38:29 - utils.py[line:43] - INFO: auc=0.9323|sn=0.8341|sp=0.8779|acc=0.8560|mcc=0.7127
+2023-10-31 16:38:29 - deepb3p.py[line:141] - INFO: validing: Epoch-2/200 | loss=0.4490 | time=0.0332 min
+2023-10-31 16:38:43 - utils.py[line:40] - INFO: tn=4523, fp=957, fn=677, tp=4803
+2023-10-31 16:38:43 - utils.py[line:41] - INFO: y_pred: 0=5200 | 1=5760
+2023-10-31 16:38:43 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:38:43 - utils.py[line:43] - INFO: auc=0.9207|sn=0.8765|sp=0.8254|acc=0.8509|mcc=0.7027
+2023-10-31 16:38:43 - deepb3p.py[line:138] - INFO: training: Epoch-3/200 | loss=0.4560 | time=0.2295 min
+2023-10-31 16:38:45 - utils.py[line:40] - INFO: tn=1203, fp=165, fn=146, tp=1222
+2023-10-31 16:38:45 - utils.py[line:41] - INFO: y_pred: 0=1349 | 1=1387
+2023-10-31 16:38:45 - utils.py[line:42] - INFO: y_true: 0=1368 | 1=1368
+2023-10-31 16:38:45 - utils.py[line:43] - INFO: auc=0.9497|sn=0.8933|sp=0.8794|acc=0.8863|mcc=0.7727
+2023-10-31 16:38:45 - deepb3p.py[line:141] - INFO: validing: Epoch-3/200 | loss=0.4226 | time=0.0376 min
+2023-10-31 16:38:45 - deepb3p.py[line:158] - INFO: Get a better model with acc 0.8863
+2023-10-31 16:38:59 - utils.py[line:40] - INFO: tn=4600, fp=880, fn=652, tp=4828
+2023-10-31 16:38:59 - utils.py[line:41] - INFO: y_pred: 0=5252 | 1=5708
+2023-10-31 16:38:59 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:38:59 - utils.py[line:43] - INFO: auc=0.9320|sn=0.8810|sp=0.8394|acc=0.8602|mcc=0.7211
+2023-10-31 16:38:59 - deepb3p.py[line:138] - INFO: training: Epoch-4/200 | loss=0.4456 | time=0.2226 min
+2023-10-31 16:39:01 - utils.py[line:40] - INFO: tn=1188, fp=179, fn=149, tp=1220
+2023-10-31 16:39:01 - utils.py[line:41] - INFO: y_pred: 0=1337 | 1=1399
+2023-10-31 16:39:01 - utils.py[line:42] - INFO: y_true: 0=1367 | 1=1369
+2023-10-31 16:39:01 - utils.py[line:43] - INFO: auc=0.9452|sn=0.8912|sp=0.8691|acc=0.8801|mcc=0.7604
+2023-10-31 16:39:01 - deepb3p.py[line:141] - INFO: validing: Epoch-4/200 | loss=0.4293 | time=0.0362 min
+2023-10-31 16:39:15 - utils.py[line:40] - INFO: tn=4730, fp=749, fn=582, tp=4899
+2023-10-31 16:39:15 - utils.py[line:41] - INFO: y_pred: 0=5312 | 1=5648
+2023-10-31 16:39:15 - utils.py[line:42] - INFO: y_true: 0=5479 | 1=5481
+2023-10-31 16:39:15 - utils.py[line:43] - INFO: auc=0.9387|sn=0.8938|sp=0.8633|acc=0.8786|mcc=0.7575
+2023-10-31 16:39:15 - deepb3p.py[line:138] - INFO: training: Epoch-5/200 | loss=0.4315 | time=0.2283 min
+2023-10-31 16:39:17 - utils.py[line:40] - INFO: tn=1208, fp=159, fn=127, tp=1242
+2023-10-31 16:39:17 - utils.py[line:41] - INFO: y_pred: 0=1335 | 1=1401
+2023-10-31 16:39:17 - utils.py[line:42] - INFO: y_true: 0=1367 | 1=1369
+2023-10-31 16:39:17 - utils.py[line:43] - INFO: auc=0.9535|sn=0.9072|sp=0.8837|acc=0.8955|mcc=0.7911
+2023-10-31 16:39:17 - deepb3p.py[line:141] - INFO: validing: Epoch-5/200 | loss=0.4131 | time=0.0382 min
+2023-10-31 16:39:17 - deepb3p.py[line:158] - INFO: Get a better model with acc 0.8955
+2023-10-31 16:39:31 - utils.py[line:40] - INFO: tn=4718, fp=763, fn=589, tp=4890
+2023-10-31 16:39:31 - utils.py[line:41] - INFO: y_pred: 0=5307 | 1=5653
+2023-10-31 16:39:31 - utils.py[line:42] - INFO: y_true: 0=5481 | 1=5479
+2023-10-31 16:39:31 - utils.py[line:43] - INFO: auc=0.9389|sn=0.8925|sp=0.8608|acc=0.8766|mcc=0.7537
+2023-10-31 16:39:31 - deepb3p.py[line:138] - INFO: training: Epoch-6/200 | loss=0.4322 | time=0.2277 min
+2023-10-31 16:39:33 - utils.py[line:40] - INFO: tn=1170, fp=198, fn=100, tp=1268
+2023-10-31 16:39:33 - utils.py[line:41] - INFO: y_pred: 0=1270 | 1=1466
+2023-10-31 16:39:33 - utils.py[line:42] - INFO: y_true: 0=1368 | 1=1368
+2023-10-31 16:39:33 - utils.py[line:43] - INFO: auc=0.9553|sn=0.9269|sp=0.8553|acc=0.8911|mcc=0.7842
+2023-10-31 16:39:33 - deepb3p.py[line:141] - INFO: validing: Epoch-6/200 | loss=0.4166 | time=0.0316 min
+2023-10-31 16:39:47 - utils.py[line:40] - INFO: tn=4737, fp=743, fn=572, tp=4908
+2023-10-31 16:39:47 - utils.py[line:41] - INFO: y_pred: 0=5309 | 1=5651
+2023-10-31 16:39:47 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:39:47 - utils.py[line:43] - INFO: auc=0.9441|sn=0.8956|sp=0.8644|acc=0.8800|mcc=0.7604
+2023-10-31 16:39:47 - deepb3p.py[line:138] - INFO: training: Epoch-7/200 | loss=0.4279 | time=0.2430 min
+2023-10-31 16:39:49 - utils.py[line:40] - INFO: tn=1143, fp=224, fn=74, tp=1295
+2023-10-31 16:39:49 - utils.py[line:41] - INFO: y_pred: 0=1217 | 1=1519
+2023-10-31 16:39:49 - utils.py[line:42] - INFO: y_true: 0=1367 | 1=1369
+2023-10-31 16:39:49 - utils.py[line:43] - INFO: auc=0.9604|sn=0.9459|sp=0.8361|acc=0.8911|mcc=0.7869
+2023-10-31 16:39:49 - deepb3p.py[line:141] - INFO: validing: Epoch-7/200 | loss=0.4189 | time=0.0368 min
+2023-10-31 16:40:05 - utils.py[line:40] - INFO: tn=4756, fp=724, fn=500, tp=4980
+2023-10-31 16:40:05 - utils.py[line:41] - INFO: y_pred: 0=5256 | 1=5704
+2023-10-31 16:40:05 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:40:05 - utils.py[line:43] - INFO: auc=0.9483|sn=0.9088|sp=0.8679|acc=0.8883|mcc=0.7773
+2023-10-31 16:40:05 - deepb3p.py[line:138] - INFO: training: Epoch-8/200 | loss=0.4210 | time=0.2502 min
+2023-10-31 16:40:07 - utils.py[line:40] - INFO: tn=1241, fp=126, fn=160, tp=1209
+2023-10-31 16:40:07 - utils.py[line:41] - INFO: y_pred: 0=1401 | 1=1335
+2023-10-31 16:40:07 - utils.py[line:42] - INFO: y_true: 0=1367 | 1=1369
+2023-10-31 16:40:07 - utils.py[line:43] - INFO: auc=0.9586|sn=0.8831|sp=0.9078|acc=0.8955|mcc=0.7912
+2023-10-31 16:40:07 - deepb3p.py[line:141] - INFO: validing: Epoch-8/200 | loss=0.4124 | time=0.0362 min
+2023-10-31 16:40:21 - utils.py[line:40] - INFO: tn=4821, fp=660, fn=507, tp=4972
+2023-10-31 16:40:21 - utils.py[line:41] - INFO: y_pred: 0=5328 | 1=5632
+2023-10-31 16:40:21 - utils.py[line:42] - INFO: y_true: 0=5481 | 1=5479
+2023-10-31 16:40:21 - utils.py[line:43] - INFO: auc=0.9514|sn=0.9075|sp=0.8796|acc=0.8935|mcc=0.7874
+2023-10-31 16:40:21 - deepb3p.py[line:138] - INFO: training: Epoch-9/200 | loss=0.4148 | time=0.2424 min
+2023-10-31 16:40:23 - utils.py[line:40] - INFO: tn=1198, fp=171, fn=82, tp=1285
+2023-10-31 16:40:23 - utils.py[line:41] - INFO: y_pred: 0=1280 | 1=1456
+2023-10-31 16:40:23 - utils.py[line:42] - INFO: y_true: 0=1369 | 1=1367
+2023-10-31 16:40:23 - utils.py[line:43] - INFO: auc=0.9645|sn=0.9400|sp=0.8751|acc=0.9075|mcc=0.8168
+2023-10-31 16:40:23 - deepb3p.py[line:141] - INFO: validing: Epoch-9/200 | loss=0.4044 | time=0.0342 min
+2023-10-31 16:40:23 - deepb3p.py[line:158] - INFO: Get a better model with acc 0.9075
+2023-10-31 16:40:38 - utils.py[line:40] - INFO: tn=4852, fp=628, fn=503, tp=4977
+2023-10-31 16:40:38 - utils.py[line:41] - INFO: y_pred: 0=5355 | 1=5605
+2023-10-31 16:40:38 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:40:38 - utils.py[line:43] - INFO: auc=0.9547|sn=0.9082|sp=0.8854|acc=0.8968|mcc=0.7938
+2023-10-31 16:40:38 - deepb3p.py[line:138] - INFO: training: Epoch-10/200 | loss=0.4120 | time=0.2347 min
+2023-10-31 16:40:39 - utils.py[line:40] - INFO: tn=1205, fp=163, fn=89, tp=1279
+2023-10-31 16:40:39 - utils.py[line:41] - INFO: y_pred: 0=1294 | 1=1442
+2023-10-31 16:40:39 - utils.py[line:42] - INFO: y_true: 0=1368 | 1=1368
+2023-10-31 16:40:39 - utils.py[line:43] - INFO: auc=0.9654|sn=0.9349|sp=0.8808|acc=0.9079|mcc=0.8170
+2023-10-31 16:40:39 - deepb3p.py[line:141] - INFO: validing: Epoch-10/200 | loss=0.4059 | time=0.0284 min
+2023-10-31 16:40:39 - deepb3p.py[line:158] - INFO: Get a better model with acc 0.9079
+2023-10-31 16:40:54 - utils.py[line:40] - INFO: tn=4853, fp=627, fn=485, tp=4995
+2023-10-31 16:40:54 - utils.py[line:41] - INFO: y_pred: 0=5338 | 1=5622
+2023-10-31 16:40:54 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:40:54 - utils.py[line:43] - INFO: auc=0.9555|sn=0.9115|sp=0.8856|acc=0.8985|mcc=0.7973
+2023-10-31 16:40:54 - deepb3p.py[line:138] - INFO: training: Epoch-11/200 | loss=0.4103 | time=0.2404 min
+2023-10-31 16:40:56 - utils.py[line:40] - INFO: tn=1252, fp=116, fn=157, tp=1211
+2023-10-31 16:40:56 - utils.py[line:41] - INFO: y_pred: 0=1409 | 1=1327
+2023-10-31 16:40:56 - utils.py[line:42] - INFO: y_true: 0=1368 | 1=1368
+2023-10-31 16:40:56 - utils.py[line:43] - INFO: auc=0.9631|sn=0.8852|sp=0.9152|acc=0.9002|mcc=0.8008
+2023-10-31 16:40:56 - deepb3p.py[line:141] - INFO: validing: Epoch-11/200 | loss=0.4073 | time=0.0327 min
+2023-10-31 16:41:10 - utils.py[line:40] - INFO: tn=4876, fp=604, fn=451, tp=5029
+2023-10-31 16:41:10 - utils.py[line:41] - INFO: y_pred: 0=5327 | 1=5633
+2023-10-31 16:41:10 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:41:10 - utils.py[line:43] - INFO: auc=0.9568|sn=0.9177|sp=0.8898|acc=0.9037|mcc=0.8078
+2023-10-31 16:41:10 - deepb3p.py[line:138] - INFO: training: Epoch-12/200 | loss=0.4070 | time=0.2302 min
+2023-10-31 16:41:12 - utils.py[line:40] - INFO: tn=1253, fp=114, fn=154, tp=1215
+2023-10-31 16:41:12 - utils.py[line:41] - INFO: y_pred: 0=1407 | 1=1329
+2023-10-31 16:41:12 - utils.py[line:42] - INFO: y_true: 0=1367 | 1=1369
+2023-10-31 16:41:12 - utils.py[line:43] - INFO: auc=0.9618|sn=0.8875|sp=0.9166|acc=0.9020|mcc=0.8044
+2023-10-31 16:41:12 - deepb3p.py[line:141] - INFO: validing: Epoch-12/200 | loss=0.4085 | time=0.0344 min
+2023-10-31 16:41:26 - utils.py[line:40] - INFO: tn=4874, fp=606, fn=446, tp=5034
+2023-10-31 16:41:26 - utils.py[line:41] - INFO: y_pred: 0=5320 | 1=5640
+2023-10-31 16:41:26 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:41:26 - utils.py[line:43] - INFO: auc=0.9602|sn=0.9186|sp=0.8894|acc=0.9040|mcc=0.8084
+2023-10-31 16:41:26 - deepb3p.py[line:138] - INFO: training: Epoch-13/200 | loss=0.4047 | time=0.2323 min
+2023-10-31 16:41:27 - utils.py[line:40] - INFO: tn=1220, fp=147, fn=128, tp=1241
+2023-10-31 16:41:27 - utils.py[line:41] - INFO: y_pred: 0=1348 | 1=1388
+2023-10-31 16:41:27 - utils.py[line:42] - INFO: y_true: 0=1367 | 1=1369
+2023-10-31 16:41:27 - utils.py[line:43] - INFO: auc=0.9671|sn=0.9065|sp=0.8925|acc=0.8995|mcc=0.7991
+2023-10-31 16:41:27 - deepb3p.py[line:141] - INFO: validing: Epoch-13/200 | loss=0.4053 | time=0.0305 min
+2023-10-31 16:41:41 - utils.py[line:40] - INFO: tn=4914, fp=566, fn=451, tp=5029
+2023-10-31 16:41:41 - utils.py[line:41] - INFO: y_pred: 0=5365 | 1=5595
+2023-10-31 16:41:41 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:41:41 - utils.py[line:43] - INFO: auc=0.9613|sn=0.9177|sp=0.8967|acc=0.9072|mcc=0.8146
+2023-10-31 16:41:41 - deepb3p.py[line:138] - INFO: training: Epoch-14/200 | loss=0.4024 | time=0.2197 min
+2023-10-31 16:41:43 - utils.py[line:40] - INFO: tn=1267, fp=100, fn=170, tp=1199
+2023-10-31 16:41:43 - utils.py[line:41] - INFO: y_pred: 0=1437 | 1=1299
+2023-10-31 16:41:43 - utils.py[line:42] - INFO: y_true: 0=1367 | 1=1369
+2023-10-31 16:41:43 - utils.py[line:43] - INFO: auc=0.9645|sn=0.8758|sp=0.9268|acc=0.9013|mcc=0.8037
+2023-10-31 16:41:43 - deepb3p.py[line:141] - INFO: validing: Epoch-14/200 | loss=0.4088 | time=0.0351 min
+2023-10-31 16:41:57 - utils.py[line:40] - INFO: tn=4924, fp=555, fn=431, tp=5050
+2023-10-31 16:41:57 - utils.py[line:41] - INFO: y_pred: 0=5355 | 1=5605
+2023-10-31 16:41:57 - utils.py[line:42] - INFO: y_true: 0=5479 | 1=5481
+2023-10-31 16:41:57 - utils.py[line:43] - INFO: auc=0.9648|sn=0.9214|sp=0.8987|acc=0.9100|mcc=0.8203
+2023-10-31 16:41:57 - deepb3p.py[line:138] - INFO: training: Epoch-15/200 | loss=0.3999 | time=0.2330 min
+2023-10-31 16:41:59 - utils.py[line:40] - INFO: tn=1247, fp=122, fn=154, tp=1213
+2023-10-31 16:41:59 - utils.py[line:41] - INFO: y_pred: 0=1401 | 1=1335
+2023-10-31 16:41:59 - utils.py[line:42] - INFO: y_true: 0=1369 | 1=1367
+2023-10-31 16:41:59 - utils.py[line:43] - INFO: auc=0.9659|sn=0.8873|sp=0.9109|acc=0.8991|mcc=0.7985
+2023-10-31 16:41:59 - deepb3p.py[line:141] - INFO: validing: Epoch-15/200 | loss=0.4057 | time=0.0301 min
+2023-10-31 16:41:59 - deepb3p.py[line:163] - INFO: validing acc has not improved for more than 5 steps in epoch 15, stop training
+2023-10-31 16:41:59 - deepb3p.py[line:167] - INFO: cv fold 5 for fold 3 done
+2023-10-31 16:41:59 - deepb3p.py[line:168] - INFO: Find best model, valid auc:0.965,  sn:0.935,  sp:0.881, acc:0.908, mcc:0.817
+2023-10-31 16:41:59 - utils.py[line:17] - INFO: set seed 4 for everything
+2023-10-31 16:41:59 - deepb3p.py[line:121] - INFO: begin train with fold 4
+2023-10-31 16:42:13 - utils.py[line:40] - INFO: tn=4083, fp=1398, fn=1094, tp=4385
+2023-10-31 16:42:13 - utils.py[line:41] - INFO: y_pred: 0=5177 | 1=5783
+2023-10-31 16:42:13 - utils.py[line:42] - INFO: y_true: 0=5481 | 1=5479
+2023-10-31 16:42:13 - utils.py[line:43] - INFO: auc=0.8392|sn=0.8003|sp=0.7449|acc=0.7726|mcc=0.5461
+2023-10-31 16:42:13 - deepb3p.py[line:138] - INFO: training: Epoch-1/200 | loss=0.5299 | time=0.2352 min
+2023-10-31 16:42:15 - utils.py[line:40] - INFO: tn=1062, fp=306, fn=114, tp=1254
+2023-10-31 16:42:15 - utils.py[line:41] - INFO: y_pred: 0=1176 | 1=1560
+2023-10-31 16:42:15 - utils.py[line:42] - INFO: y_true: 0=1368 | 1=1368
+2023-10-31 16:42:15 - utils.py[line:43] - INFO: auc=0.9264|sn=0.9167|sp=0.7763|acc=0.8465|mcc=0.6999
+2023-10-31 16:42:15 - deepb3p.py[line:141] - INFO: validing: Epoch-1/200 | loss=0.4586 | time=0.0340 min
+2023-10-31 16:42:15 - deepb3p.py[line:158] - INFO: Get a better model with acc 0.8465
+2023-10-31 16:42:29 - utils.py[line:40] - INFO: tn=4441, fp=1039, fn=816, tp=4664
+2023-10-31 16:42:29 - utils.py[line:41] - INFO: y_pred: 0=5257 | 1=5703
+2023-10-31 16:42:29 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:42:29 - utils.py[line:43] - INFO: auc=0.9044|sn=0.8511|sp=0.8104|acc=0.8307|mcc=0.6620
+2023-10-31 16:42:29 - deepb3p.py[line:138] - INFO: training: Epoch-2/200 | loss=0.4742 | time=0.2338 min
+2023-10-31 16:42:31 - utils.py[line:40] - INFO: tn=1122, fp=246, fn=87, tp=1281
+2023-10-31 16:42:31 - utils.py[line:41] - INFO: y_pred: 0=1209 | 1=1527
+2023-10-31 16:42:31 - utils.py[line:42] - INFO: y_true: 0=1368 | 1=1368
+2023-10-31 16:42:31 - utils.py[line:43] - INFO: auc=0.9420|sn=0.9364|sp=0.8202|acc=0.8783|mcc=0.7617
+2023-10-31 16:42:31 - deepb3p.py[line:141] - INFO: validing: Epoch-2/200 | loss=0.4335 | time=0.0327 min
+2023-10-31 16:42:31 - deepb3p.py[line:158] - INFO: Get a better model with acc 0.8783
+2023-10-31 16:42:45 - utils.py[line:40] - INFO: tn=4612, fp=868, fn=746, tp=4734
+2023-10-31 16:42:45 - utils.py[line:41] - INFO: y_pred: 0=5358 | 1=5602
+2023-10-31 16:42:45 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:42:45 - utils.py[line:43] - INFO: auc=0.9214|sn=0.8639|sp=0.8416|acc=0.8527|mcc=0.7056
+2023-10-31 16:42:45 - deepb3p.py[line:138] - INFO: training: Epoch-3/200 | loss=0.4543 | time=0.2297 min
+2023-10-31 16:42:47 - utils.py[line:40] - INFO: tn=1191, fp=179, fn=182, tp=1184
+2023-10-31 16:42:47 - utils.py[line:41] - INFO: y_pred: 0=1373 | 1=1363
+2023-10-31 16:42:47 - utils.py[line:42] - INFO: y_true: 0=1370 | 1=1366
+2023-10-31 16:42:47 - utils.py[line:43] - INFO: auc=0.9399|sn=0.8668|sp=0.8693|acc=0.8681|mcc=0.7361
+2023-10-31 16:42:47 - deepb3p.py[line:141] - INFO: validing: Epoch-3/200 | loss=0.4377 | time=0.0329 min
+2023-10-31 16:43:01 - utils.py[line:40] - INFO: tn=4660, fp=819, fn=682, tp=4799
+2023-10-31 16:43:01 - utils.py[line:41] - INFO: y_pred: 0=5342 | 1=5618
+2023-10-31 16:43:01 - utils.py[line:42] - INFO: y_true: 0=5479 | 1=5481
+2023-10-31 16:43:01 - utils.py[line:43] - INFO: auc=0.9282|sn=0.8756|sp=0.8505|acc=0.8630|mcc=0.7263
+2023-10-31 16:43:01 - deepb3p.py[line:138] - INFO: training: Epoch-4/200 | loss=0.4453 | time=0.2321 min
+2023-10-31 16:43:02 - utils.py[line:40] - INFO: tn=1086, fp=281, fn=63, tp=1306
+2023-10-31 16:43:02 - utils.py[line:41] - INFO: y_pred: 0=1149 | 1=1587
+2023-10-31 16:43:02 - utils.py[line:42] - INFO: y_true: 0=1367 | 1=1369
+2023-10-31 16:43:02 - utils.py[line:43] - INFO: auc=0.9501|sn=0.9540|sp=0.7944|acc=0.8743|mcc=0.7582
+2023-10-31 16:43:02 - deepb3p.py[line:141] - INFO: validing: Epoch-4/200 | loss=0.4366 | time=0.0276 min
+2023-10-31 16:43:16 - utils.py[line:40] - INFO: tn=4638, fp=841, fn=623, tp=4858
+2023-10-31 16:43:16 - utils.py[line:41] - INFO: y_pred: 0=5261 | 1=5699
+2023-10-31 16:43:16 - utils.py[line:42] - INFO: y_true: 0=5479 | 1=5481
+2023-10-31 16:43:16 - utils.py[line:43] - INFO: auc=0.9344|sn=0.8863|sp=0.8465|acc=0.8664|mcc=0.7334
+2023-10-31 16:43:16 - deepb3p.py[line:138] - INFO: training: Epoch-5/200 | loss=0.4403 | time=0.2294 min
+2023-10-31 16:43:18 - utils.py[line:40] - INFO: tn=1102, fp=265, fn=65, tp=1304
+2023-10-31 16:43:18 - utils.py[line:41] - INFO: y_pred: 0=1167 | 1=1569
+2023-10-31 16:43:18 - utils.py[line:42] - INFO: y_true: 0=1367 | 1=1369
+2023-10-31 16:43:18 - utils.py[line:43] - INFO: auc=0.9527|sn=0.9525|sp=0.8061|acc=0.8794|mcc=0.7670
+2023-10-31 16:43:18 - deepb3p.py[line:141] - INFO: validing: Epoch-5/200 | loss=0.4320 | time=0.0339 min
+2023-10-31 16:43:18 - deepb3p.py[line:158] - INFO: Get a better model with acc 0.8794
+2023-10-31 16:43:32 - utils.py[line:40] - INFO: tn=4689, fp=791, fn=594, tp=4886
+2023-10-31 16:43:32 - utils.py[line:41] - INFO: y_pred: 0=5283 | 1=5677
+2023-10-31 16:43:32 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:43:32 - utils.py[line:43] - INFO: auc=0.9394|sn=0.8916|sp=0.8557|acc=0.8736|mcc=0.7477
+2023-10-31 16:43:32 - deepb3p.py[line:138] - INFO: training: Epoch-6/200 | loss=0.4336 | time=0.2311 min
+2023-10-31 16:43:34 - utils.py[line:40] - INFO: tn=1173, fp=196, fn=88, tp=1279
+2023-10-31 16:43:34 - utils.py[line:41] - INFO: y_pred: 0=1261 | 1=1475
+2023-10-31 16:43:34 - utils.py[line:42] - INFO: y_true: 0=1369 | 1=1367
+2023-10-31 16:43:34 - utils.py[line:43] - INFO: auc=0.9545|sn=0.9356|sp=0.8568|acc=0.8962|mcc=0.7949
+2023-10-31 16:43:34 - deepb3p.py[line:141] - INFO: validing: Epoch-6/200 | loss=0.4152 | time=0.0348 min
+2023-10-31 16:43:34 - deepb3p.py[line:158] - INFO: Get a better model with acc 0.8962
+2023-10-31 16:43:48 - utils.py[line:40] - INFO: tn=4741, fp=739, fn=586, tp=4894
+2023-10-31 16:43:48 - utils.py[line:41] - INFO: y_pred: 0=5327 | 1=5633
+2023-10-31 16:43:48 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:43:48 - utils.py[line:43] - INFO: auc=0.9415|sn=0.8931|sp=0.8651|acc=0.8791|mcc=0.7585
+2023-10-31 16:43:48 - deepb3p.py[line:138] - INFO: training: Epoch-7/200 | loss=0.4290 | time=0.2319 min
+2023-10-31 16:43:50 - utils.py[line:40] - INFO: tn=1200, fp=167, fn=97, tp=1272
+2023-10-31 16:43:50 - utils.py[line:41] - INFO: y_pred: 0=1297 | 1=1439
+2023-10-31 16:43:50 - utils.py[line:42] - INFO: y_true: 0=1367 | 1=1369
+2023-10-31 16:43:50 - utils.py[line:43] - INFO: auc=0.9589|sn=0.9291|sp=0.8778|acc=0.9035|mcc=0.8081
+2023-10-31 16:43:50 - deepb3p.py[line:141] - INFO: validing: Epoch-7/200 | loss=0.4086 | time=0.0293 min
+2023-10-31 16:43:50 - deepb3p.py[line:158] - INFO: Get a better model with acc 0.9035
+2023-10-31 16:44:04 - utils.py[line:40] - INFO: tn=4789, fp=691, fn=554, tp=4926
+2023-10-31 16:44:04 - utils.py[line:41] - INFO: y_pred: 0=5343 | 1=5617
+2023-10-31 16:44:04 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:44:04 - utils.py[line:43] - INFO: auc=0.9471|sn=0.8989|sp=0.8739|acc=0.8864|mcc=0.7731
+2023-10-31 16:44:04 - deepb3p.py[line:138] - INFO: training: Epoch-8/200 | loss=0.4214 | time=0.2316 min
+2023-10-31 16:44:06 - utils.py[line:40] - INFO: tn=1218, fp=150, fn=123, tp=1245
+2023-10-31 16:44:06 - utils.py[line:41] - INFO: y_pred: 0=1341 | 1=1395
+2023-10-31 16:44:06 - utils.py[line:42] - INFO: y_true: 0=1368 | 1=1368
+2023-10-31 16:44:06 - utils.py[line:43] - INFO: auc=0.9580|sn=0.9101|sp=0.8904|acc=0.9002|mcc=0.8006
+2023-10-31 16:44:06 - deepb3p.py[line:141] - INFO: validing: Epoch-8/200 | loss=0.4116 | time=0.0371 min
+2023-10-31 16:44:20 - utils.py[line:40] - INFO: tn=4767, fp=713, fn=494, tp=4986
+2023-10-31 16:44:20 - utils.py[line:41] - INFO: y_pred: 0=5261 | 1=5699
+2023-10-31 16:44:20 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:44:20 - utils.py[line:43] - INFO: auc=0.9474|sn=0.9099|sp=0.8699|acc=0.8899|mcc=0.7804
+2023-10-31 16:44:20 - deepb3p.py[line:138] - INFO: training: Epoch-9/200 | loss=0.4211 | time=0.2253 min
+2023-10-31 16:44:22 - utils.py[line:40] - INFO: tn=1185, fp=183, fn=89, tp=1279
+2023-10-31 16:44:22 - utils.py[line:41] - INFO: y_pred: 0=1274 | 1=1462
+2023-10-31 16:44:22 - utils.py[line:42] - INFO: y_true: 0=1368 | 1=1368
+2023-10-31 16:44:22 - utils.py[line:43] - INFO: auc=0.9610|sn=0.9349|sp=0.8662|acc=0.9006|mcc=0.8031
+2023-10-31 16:44:22 - deepb3p.py[line:141] - INFO: validing: Epoch-9/200 | loss=0.4098 | time=0.0371 min
+2023-10-31 16:44:35 - utils.py[line:40] - INFO: tn=4840, fp=639, fn=525, tp=4956
+2023-10-31 16:44:35 - utils.py[line:41] - INFO: y_pred: 0=5365 | 1=5595
+2023-10-31 16:44:35 - utils.py[line:42] - INFO: y_true: 0=5479 | 1=5481
+2023-10-31 16:44:35 - utils.py[line:43] - INFO: auc=0.9525|sn=0.9042|sp=0.8834|acc=0.8938|mcc=0.7878
+2023-10-31 16:44:35 - deepb3p.py[line:138] - INFO: training: Epoch-10/200 | loss=0.4155 | time=0.2138 min
+2023-10-31 16:44:37 - utils.py[line:40] - INFO: tn=1162, fp=206, fn=64, tp=1304
+2023-10-31 16:44:37 - utils.py[line:41] - INFO: y_pred: 0=1226 | 1=1510
+2023-10-31 16:44:37 - utils.py[line:42] - INFO: y_true: 0=1368 | 1=1368
+2023-10-31 16:44:37 - utils.py[line:43] - INFO: auc=0.9637|sn=0.9532|sp=0.8494|acc=0.9013|mcc=0.8070
+2023-10-31 16:44:37 - deepb3p.py[line:141] - INFO: validing: Epoch-10/200 | loss=0.4072 | time=0.0366 min
+2023-10-31 16:44:51 - utils.py[line:40] - INFO: tn=4841, fp=640, fn=501, tp=4978
+2023-10-31 16:44:51 - utils.py[line:41] - INFO: y_pred: 0=5342 | 1=5618
+2023-10-31 16:44:51 - utils.py[line:42] - INFO: y_true: 0=5481 | 1=5479
+2023-10-31 16:44:51 - utils.py[line:43] - INFO: auc=0.9531|sn=0.9086|sp=0.8832|acc=0.8959|mcc=0.7920
+2023-10-31 16:44:51 - deepb3p.py[line:138] - INFO: training: Epoch-11/200 | loss=0.4139 | time=0.2241 min
+2023-10-31 16:44:53 - utils.py[line:40] - INFO: tn=1250, fp=119, fn=132, tp=1235
+2023-10-31 16:44:53 - utils.py[line:41] - INFO: y_pred: 0=1382 | 1=1354
+2023-10-31 16:44:53 - utils.py[line:42] - INFO: y_true: 0=1369 | 1=1367
+2023-10-31 16:44:53 - utils.py[line:43] - INFO: auc=0.9635|sn=0.9034|sp=0.9131|acc=0.9083|mcc=0.8166
+2023-10-31 16:44:53 - deepb3p.py[line:141] - INFO: validing: Epoch-11/200 | loss=0.4023 | time=0.0309 min
+2023-10-31 16:44:53 - deepb3p.py[line:158] - INFO: Get a better model with acc 0.9083
+2023-10-31 16:45:06 - utils.py[line:40] - INFO: tn=4878, fp=602, fn=495, tp=4985
+2023-10-31 16:45:06 - utils.py[line:41] - INFO: y_pred: 0=5373 | 1=5587
+2023-10-31 16:45:06 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:45:06 - utils.py[line:43] - INFO: auc=0.9541|sn=0.9097|sp=0.8901|acc=0.8999|mcc=0.8000
+2023-10-31 16:45:06 - deepb3p.py[line:138] - INFO: training: Epoch-12/200 | loss=0.4103 | time=0.2226 min
+2023-10-31 16:45:08 - utils.py[line:40] - INFO: tn=1225, fp=144, fn=108, tp=1259
+2023-10-31 16:45:08 - utils.py[line:41] - INFO: y_pred: 0=1333 | 1=1403
+2023-10-31 16:45:08 - utils.py[line:42] - INFO: y_true: 0=1369 | 1=1367
+2023-10-31 16:45:08 - utils.py[line:43] - INFO: auc=0.9626|sn=0.9210|sp=0.8948|acc=0.9079|mcc=0.8161
+2023-10-31 16:45:08 - deepb3p.py[line:141] - INFO: validing: Epoch-12/200 | loss=0.4043 | time=0.0296 min
+2023-10-31 16:45:22 - utils.py[line:40] - INFO: tn=4871, fp=609, fn=480, tp=5000
+2023-10-31 16:45:22 - utils.py[line:41] - INFO: y_pred: 0=5351 | 1=5609
+2023-10-31 16:45:22 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:45:22 - utils.py[line:43] - INFO: auc=0.9589|sn=0.9124|sp=0.8889|acc=0.9006|mcc=0.8015
+2023-10-31 16:45:22 - deepb3p.py[line:138] - INFO: training: Epoch-13/200 | loss=0.4074 | time=0.2352 min
+2023-10-31 16:45:24 - utils.py[line:40] - INFO: tn=1270, fp=100, fn=163, tp=1203
+2023-10-31 16:45:24 - utils.py[line:41] - INFO: y_pred: 0=1433 | 1=1303
+2023-10-31 16:45:24 - utils.py[line:42] - INFO: y_true: 0=1370 | 1=1366
+2023-10-31 16:45:24 - utils.py[line:43] - INFO: auc=0.9640|sn=0.8807|sp=0.9270|acc=0.9039|mcc=0.8086
+2023-10-31 16:45:24 - deepb3p.py[line:141] - INFO: validing: Epoch-13/200 | loss=0.4048 | time=0.0304 min
+2023-10-31 16:45:37 - utils.py[line:40] - INFO: tn=4888, fp=592, fn=491, tp=4989
+2023-10-31 16:45:37 - utils.py[line:41] - INFO: y_pred: 0=5379 | 1=5581
+2023-10-31 16:45:37 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:45:37 - utils.py[line:43] - INFO: auc=0.9581|sn=0.9104|sp=0.8920|acc=0.9012|mcc=0.8025
+2023-10-31 16:45:37 - deepb3p.py[line:138] - INFO: training: Epoch-14/200 | loss=0.4083 | time=0.2174 min
+2023-10-31 16:45:39 - utils.py[line:40] - INFO: tn=1230, fp=138, fn=106, tp=1262
+2023-10-31 16:45:39 - utils.py[line:41] - INFO: y_pred: 0=1336 | 1=1400
+2023-10-31 16:45:39 - utils.py[line:42] - INFO: y_true: 0=1368 | 1=1368
+2023-10-31 16:45:39 - utils.py[line:43] - INFO: auc=0.9660|sn=0.9225|sp=0.8991|acc=0.9108|mcc=0.8219
+2023-10-31 16:45:39 - deepb3p.py[line:141] - INFO: validing: Epoch-14/200 | loss=0.4017 | time=0.0361 min
+2023-10-31 16:45:39 - deepb3p.py[line:158] - INFO: Get a better model with acc 0.9108
+2023-10-31 16:45:53 - utils.py[line:40] - INFO: tn=4884, fp=595, fn=420, tp=5061
+2023-10-31 16:45:53 - utils.py[line:41] - INFO: y_pred: 0=5304 | 1=5656
+2023-10-31 16:45:53 - utils.py[line:42] - INFO: y_true: 0=5479 | 1=5481
+2023-10-31 16:45:53 - utils.py[line:43] - INFO: auc=0.9604|sn=0.9234|sp=0.8914|acc=0.9074|mcc=0.8152
+2023-10-31 16:45:53 - deepb3p.py[line:138] - INFO: training: Epoch-15/200 | loss=0.4036 | time=0.2292 min
+2023-10-31 16:45:55 - utils.py[line:40] - INFO: tn=1234, fp=132, fn=113, tp=1257
+2023-10-31 16:45:55 - utils.py[line:41] - INFO: y_pred: 0=1347 | 1=1389
+2023-10-31 16:45:55 - utils.py[line:42] - INFO: y_true: 0=1366 | 1=1370
+2023-10-31 16:45:55 - utils.py[line:43] - INFO: auc=0.9677|sn=0.9175|sp=0.9034|acc=0.9105|mcc=0.8210
+2023-10-31 16:45:55 - deepb3p.py[line:141] - INFO: validing: Epoch-15/200 | loss=0.3997 | time=0.0367 min
+2023-10-31 16:46:09 - utils.py[line:40] - INFO: tn=4943, fp=537, fn=472, tp=5008
+2023-10-31 16:46:09 - utils.py[line:41] - INFO: y_pred: 0=5415 | 1=5545
+2023-10-31 16:46:09 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:46:09 - utils.py[line:43] - INFO: auc=0.9621|sn=0.9139|sp=0.9020|acc=0.9079|mcc=0.8159
+2023-10-31 16:46:09 - deepb3p.py[line:138] - INFO: training: Epoch-16/200 | loss=0.4015 | time=0.2325 min
+2023-10-31 16:46:11 - utils.py[line:40] - INFO: tn=1232, fp=135, fn=117, tp=1252
+2023-10-31 16:46:11 - utils.py[line:41] - INFO: y_pred: 0=1349 | 1=1387
+2023-10-31 16:46:11 - utils.py[line:42] - INFO: y_true: 0=1367 | 1=1369
+2023-10-31 16:46:11 - utils.py[line:43] - INFO: auc=0.9693|sn=0.9145|sp=0.9012|acc=0.9079|mcc=0.8159
+2023-10-31 16:46:11 - deepb3p.py[line:141] - INFO: validing: Epoch-16/200 | loss=0.3997 | time=0.0283 min
+2023-10-31 16:46:25 - utils.py[line:40] - INFO: tn=4942, fp=538, fn=415, tp=5065
+2023-10-31 16:46:25 - utils.py[line:41] - INFO: y_pred: 0=5357 | 1=5603
+2023-10-31 16:46:25 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:46:25 - utils.py[line:43] - INFO: auc=0.9650|sn=0.9243|sp=0.9018|acc=0.9130|mcc=0.8263
+2023-10-31 16:46:25 - deepb3p.py[line:138] - INFO: training: Epoch-17/200 | loss=0.3976 | time=0.2293 min
+2023-10-31 16:46:27 - utils.py[line:40] - INFO: tn=1239, fp=129, fn=118, tp=1250
+2023-10-31 16:46:27 - utils.py[line:41] - INFO: y_pred: 0=1357 | 1=1379
+2023-10-31 16:46:27 - utils.py[line:42] - INFO: y_true: 0=1368 | 1=1368
+2023-10-31 16:46:27 - utils.py[line:43] - INFO: auc=0.9701|sn=0.9137|sp=0.9057|acc=0.9097|mcc=0.8195
+2023-10-31 16:46:27 - deepb3p.py[line:141] - INFO: validing: Epoch-17/200 | loss=0.3984 | time=0.0368 min
+2023-10-31 16:46:40 - utils.py[line:40] - INFO: tn=4977, fp=502, fn=402, tp=5079
+2023-10-31 16:46:40 - utils.py[line:41] - INFO: y_pred: 0=5379 | 1=5581
+2023-10-31 16:46:40 - utils.py[line:42] - INFO: y_true: 0=5479 | 1=5481
+2023-10-31 16:46:40 - utils.py[line:43] - INFO: auc=0.9652|sn=0.9267|sp=0.9084|acc=0.9175|mcc=0.8352
+2023-10-31 16:46:40 - deepb3p.py[line:138] - INFO: training: Epoch-18/200 | loss=0.3942 | time=0.2202 min
+2023-10-31 16:46:42 - utils.py[line:40] - INFO: tn=1290, fp=78, fn=173, tp=1195
+2023-10-31 16:46:42 - utils.py[line:41] - INFO: y_pred: 0=1463 | 1=1273
+2023-10-31 16:46:42 - utils.py[line:42] - INFO: y_true: 0=1368 | 1=1368
+2023-10-31 16:46:42 - utils.py[line:43] - INFO: auc=0.9700|sn=0.8735|sp=0.9430|acc=0.9083|mcc=0.8185
+2023-10-31 16:46:42 - deepb3p.py[line:141] - INFO: validing: Epoch-18/200 | loss=0.4018 | time=0.0375 min
+2023-10-31 16:46:56 - utils.py[line:40] - INFO: tn=4955, fp=526, fn=393, tp=5086
+2023-10-31 16:46:56 - utils.py[line:41] - INFO: y_pred: 0=5348 | 1=5612
+2023-10-31 16:46:56 - utils.py[line:42] - INFO: y_true: 0=5481 | 1=5479
+2023-10-31 16:46:56 - utils.py[line:43] - INFO: auc=0.9661|sn=0.9283|sp=0.9040|acc=0.9161|mcc=0.8325
+2023-10-31 16:46:56 - deepb3p.py[line:138] - INFO: training: Epoch-19/200 | loss=0.3946 | time=0.2250 min
+2023-10-31 16:46:58 - utils.py[line:40] - INFO: tn=1231, fp=137, fn=113, tp=1255
+2023-10-31 16:46:58 - utils.py[line:41] - INFO: y_pred: 0=1344 | 1=1392
+2023-10-31 16:46:58 - utils.py[line:42] - INFO: y_true: 0=1368 | 1=1368
+2023-10-31 16:46:58 - utils.py[line:43] - INFO: auc=0.9667|sn=0.9174|sp=0.8999|acc=0.9086|mcc=0.8174
+2023-10-31 16:46:58 - deepb3p.py[line:141] - INFO: validing: Epoch-19/200 | loss=0.3999 | time=0.0380 min
+2023-10-31 16:46:58 - deepb3p.py[line:163] - INFO: validing acc has not improved for more than 5 steps in epoch 19, stop training
+2023-10-31 16:46:58 - deepb3p.py[line:167] - INFO: cv fold 5 for fold 4 done
+2023-10-31 16:46:58 - deepb3p.py[line:168] - INFO: Find best model, valid auc:0.966,  sn:0.923,  sp:0.899, acc:0.911, mcc:0.822
+2023-10-31 16:46:58 - utils.py[line:17] - INFO: set seed 5 for everything
+2023-10-31 16:46:58 - deepb3p.py[line:121] - INFO: begin train with fold 5
+2023-10-31 16:47:12 - utils.py[line:40] - INFO: tn=4070, fp=1409, fn=1075, tp=4406
+2023-10-31 16:47:12 - utils.py[line:41] - INFO: y_pred: 0=5145 | 1=5815
+2023-10-31 16:47:12 - utils.py[line:42] - INFO: y_true: 0=5479 | 1=5481
+2023-10-31 16:47:12 - utils.py[line:43] - INFO: auc=0.8395|sn=0.8039|sp=0.7428|acc=0.7734|mcc=0.5477
+2023-10-31 16:47:12 - deepb3p.py[line:138] - INFO: training: Epoch-1/200 | loss=0.5301 | time=0.2315 min
+2023-10-31 16:47:14 - utils.py[line:40] - INFO: tn=1150, fp=218, fn=282, tp=1086
+2023-10-31 16:47:14 - utils.py[line:41] - INFO: y_pred: 0=1432 | 1=1304
+2023-10-31 16:47:14 - utils.py[line:42] - INFO: y_true: 0=1368 | 1=1368
+2023-10-31 16:47:14 - utils.py[line:43] - INFO: auc=0.9140|sn=0.7939|sp=0.8406|acc=0.8173|mcc=0.6352
+2023-10-31 16:47:14 - deepb3p.py[line:141] - INFO: validing: Epoch-1/200 | loss=0.4783 | time=0.0349 min
+2023-10-31 16:47:14 - deepb3p.py[line:158] - INFO: Get a better model with acc 0.8173
+2023-10-31 16:47:28 - utils.py[line:40] - INFO: tn=4475, fp=1005, fn=833, tp=4647
+2023-10-31 16:47:28 - utils.py[line:41] - INFO: y_pred: 0=5308 | 1=5652
+2023-10-31 16:47:28 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:47:28 - utils.py[line:43] - INFO: auc=0.9061|sn=0.8480|sp=0.8166|acc=0.8323|mcc=0.6649
+2023-10-31 16:47:28 - deepb3p.py[line:138] - INFO: training: Epoch-2/200 | loss=0.4711 | time=0.2297 min
+2023-10-31 16:47:30 - utils.py[line:40] - INFO: tn=1184, fp=182, fn=181, tp=1189
+2023-10-31 16:47:30 - utils.py[line:41] - INFO: y_pred: 0=1365 | 1=1371
+2023-10-31 16:47:30 - utils.py[line:42] - INFO: y_true: 0=1366 | 1=1370
+2023-10-31 16:47:30 - utils.py[line:43] - INFO: auc=0.9391|sn=0.8679|sp=0.8668|acc=0.8673|mcc=0.7346
+2023-10-31 16:47:30 - deepb3p.py[line:141] - INFO: validing: Epoch-2/200 | loss=0.4381 | time=0.0382 min
+2023-10-31 16:47:30 - deepb3p.py[line:158] - INFO: Get a better model with acc 0.8673
+2023-10-31 16:47:44 - utils.py[line:40] - INFO: tn=4521, fp=959, fn=743, tp=4737
+2023-10-31 16:47:44 - utils.py[line:41] - INFO: y_pred: 0=5264 | 1=5696
+2023-10-31 16:47:44 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:47:44 - utils.py[line:43] - INFO: auc=0.9161|sn=0.8644|sp=0.8250|acc=0.8447|mcc=0.6900
+2023-10-31 16:47:44 - deepb3p.py[line:138] - INFO: training: Epoch-3/200 | loss=0.4602 | time=0.2235 min
+2023-10-31 16:47:46 - utils.py[line:40] - INFO: tn=1109, fp=259, fn=99, tp=1269
+2023-10-31 16:47:46 - utils.py[line:41] - INFO: y_pred: 0=1208 | 1=1528
+2023-10-31 16:47:46 - utils.py[line:42] - INFO: y_true: 0=1368 | 1=1368
+2023-10-31 16:47:46 - utils.py[line:43] - INFO: auc=0.9401|sn=0.9276|sp=0.8107|acc=0.8692|mcc=0.7434
+2023-10-31 16:47:46 - deepb3p.py[line:141] - INFO: validing: Epoch-3/200 | loss=0.4375 | time=0.0381 min
+2023-10-31 16:47:46 - deepb3p.py[line:158] - INFO: Get a better model with acc 0.8692
+2023-10-31 16:48:00 - utils.py[line:40] - INFO: tn=4619, fp=861, fn=641, tp=4839
+2023-10-31 16:48:00 - utils.py[line:41] - INFO: y_pred: 0=5260 | 1=5700
+2023-10-31 16:48:00 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:48:00 - utils.py[line:43] - INFO: auc=0.9302|sn=0.8830|sp=0.8429|acc=0.8630|mcc=0.7265
+2023-10-31 16:48:00 - deepb3p.py[line:138] - INFO: training: Epoch-4/200 | loss=0.4451 | time=0.2322 min
+2023-10-31 16:48:02 - utils.py[line:40] - INFO: tn=1159, fp=208, fn=81, tp=1288
+2023-10-31 16:48:02 - utils.py[line:41] - INFO: y_pred: 0=1240 | 1=1496
+2023-10-31 16:48:02 - utils.py[line:42] - INFO: y_true: 0=1367 | 1=1369
+2023-10-31 16:48:02 - utils.py[line:43] - INFO: auc=0.9505|sn=0.9408|sp=0.8478|acc=0.8944|mcc=0.7921
+2023-10-31 16:48:02 - deepb3p.py[line:141] - INFO: validing: Epoch-4/200 | loss=0.4176 | time=0.0380 min
+2023-10-31 16:48:02 - deepb3p.py[line:158] - INFO: Get a better model with acc 0.8944
+2023-10-31 16:48:17 - utils.py[line:40] - INFO: tn=4655, fp=824, fn=609, tp=4872
+2023-10-31 16:48:17 - utils.py[line:41] - INFO: y_pred: 0=5264 | 1=5696
+2023-10-31 16:48:17 - utils.py[line:42] - INFO: y_true: 0=5479 | 1=5481
+2023-10-31 16:48:17 - utils.py[line:43] - INFO: auc=0.9343|sn=0.8889|sp=0.8496|acc=0.8693|mcc=0.7391
+2023-10-31 16:48:17 - deepb3p.py[line:138] - INFO: training: Epoch-5/200 | loss=0.4384 | time=0.2362 min
+2023-10-31 16:48:18 - utils.py[line:40] - INFO: tn=1242, fp=126, fn=216, tp=1152
+2023-10-31 16:48:18 - utils.py[line:41] - INFO: y_pred: 0=1458 | 1=1278
+2023-10-31 16:48:18 - utils.py[line:42] - INFO: y_true: 0=1368 | 1=1368
+2023-10-31 16:48:18 - utils.py[line:43] - INFO: auc=0.9486|sn=0.8421|sp=0.9079|acc=0.8750|mcc=0.7516
+2023-10-31 16:48:18 - deepb3p.py[line:141] - INFO: validing: Epoch-5/200 | loss=0.4305 | time=0.0301 min
+2023-10-31 16:48:33 - utils.py[line:40] - INFO: tn=4736, fp=743, fn=584, tp=4897
+2023-10-31 16:48:33 - utils.py[line:41] - INFO: y_pred: 0=5320 | 1=5640
+2023-10-31 16:48:33 - utils.py[line:42] - INFO: y_true: 0=5479 | 1=5481
+2023-10-31 16:48:33 - utils.py[line:43] - INFO: auc=0.9396|sn=0.8935|sp=0.8644|acc=0.8789|mcc=0.7582
+2023-10-31 16:48:33 - deepb3p.py[line:138] - INFO: training: Epoch-6/200 | loss=0.4293 | time=0.2376 min
+2023-10-31 16:48:35 - utils.py[line:40] - INFO: tn=1194, fp=173, fn=92, tp=1277
+2023-10-31 16:48:35 - utils.py[line:41] - INFO: y_pred: 0=1286 | 1=1450
+2023-10-31 16:48:35 - utils.py[line:42] - INFO: y_true: 0=1367 | 1=1369
+2023-10-31 16:48:35 - utils.py[line:43] - INFO: auc=0.9596|sn=0.9328|sp=0.8734|acc=0.9031|mcc=0.8077
+2023-10-31 16:48:35 - deepb3p.py[line:141] - INFO: validing: Epoch-6/200 | loss=0.4066 | time=0.0355 min
+2023-10-31 16:48:35 - deepb3p.py[line:158] - INFO: Get a better model with acc 0.9031
+2023-10-31 16:48:48 - utils.py[line:40] - INFO: tn=4724, fp=755, fn=580, tp=4901
+2023-10-31 16:48:48 - utils.py[line:41] - INFO: y_pred: 0=5304 | 1=5656
+2023-10-31 16:48:48 - utils.py[line:42] - INFO: y_true: 0=5479 | 1=5481
+2023-10-31 16:48:48 - utils.py[line:43] - INFO: auc=0.9412|sn=0.8942|sp=0.8622|acc=0.8782|mcc=0.7568
+2023-10-31 16:48:48 - deepb3p.py[line:138] - INFO: training: Epoch-7/200 | loss=0.4296 | time=0.2233 min
+2023-10-31 16:48:50 - utils.py[line:40] - INFO: tn=1168, fp=198, fn=71, tp=1299
+2023-10-31 16:48:50 - utils.py[line:41] - INFO: y_pred: 0=1239 | 1=1497
+2023-10-31 16:48:50 - utils.py[line:42] - INFO: y_true: 0=1366 | 1=1370
+2023-10-31 16:48:50 - utils.py[line:43] - INFO: auc=0.9603|sn=0.9482|sp=0.8551|acc=0.9017|mcc=0.8068
+2023-10-31 16:48:50 - deepb3p.py[line:141] - INFO: validing: Epoch-7/200 | loss=0.4074 | time=0.0338 min
+2023-10-31 16:49:04 - utils.py[line:40] - INFO: tn=4804, fp=677, fn=536, tp=4943
+2023-10-31 16:49:04 - utils.py[line:41] - INFO: y_pred: 0=5340 | 1=5620
+2023-10-31 16:49:04 - utils.py[line:42] - INFO: y_true: 0=5481 | 1=5479
+2023-10-31 16:49:04 - utils.py[line:43] - INFO: auc=0.9468|sn=0.9022|sp=0.8765|acc=0.8893|mcc=0.7789
+2023-10-31 16:49:04 - deepb3p.py[line:138] - INFO: training: Epoch-8/200 | loss=0.4199 | time=0.2228 min
+2023-10-31 16:49:06 - utils.py[line:40] - INFO: tn=1178, fp=190, fn=74, tp=1294
+2023-10-31 16:49:06 - utils.py[line:41] - INFO: y_pred: 0=1252 | 1=1484
+2023-10-31 16:49:06 - utils.py[line:42] - INFO: y_true: 0=1368 | 1=1368
+2023-10-31 16:49:06 - utils.py[line:43] - INFO: auc=0.9660|sn=0.9459|sp=0.8611|acc=0.9035|mcc=0.8099
+2023-10-31 16:49:06 - deepb3p.py[line:141] - INFO: validing: Epoch-8/200 | loss=0.4065 | time=0.0357 min
+2023-10-31 16:49:06 - deepb3p.py[line:158] - INFO: Get a better model with acc 0.9035
+2023-10-31 16:49:19 - utils.py[line:40] - INFO: tn=4823, fp=657, fn=549, tp=4931
+2023-10-31 16:49:19 - utils.py[line:41] - INFO: y_pred: 0=5372 | 1=5588
+2023-10-31 16:49:19 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:49:19 - utils.py[line:43] - INFO: auc=0.9485|sn=0.8998|sp=0.8801|acc=0.8900|mcc=0.7801
+2023-10-31 16:49:19 - deepb3p.py[line:138] - INFO: training: Epoch-9/200 | loss=0.4194 | time=0.2244 min
+2023-10-31 16:49:22 - utils.py[line:40] - INFO: tn=1190, fp=176, fn=74, tp=1296
+2023-10-31 16:49:22 - utils.py[line:41] - INFO: y_pred: 0=1264 | 1=1472
+2023-10-31 16:49:22 - utils.py[line:42] - INFO: y_true: 0=1366 | 1=1370
+2023-10-31 16:49:22 - utils.py[line:43] - INFO: auc=0.9674|sn=0.9460|sp=0.8712|acc=0.9086|mcc=0.8195
+2023-10-31 16:49:22 - deepb3p.py[line:141] - INFO: validing: Epoch-9/200 | loss=0.4021 | time=0.0376 min
+2023-10-31 16:49:22 - deepb3p.py[line:158] - INFO: Get a better model with acc 0.9086
+2023-10-31 16:49:35 - utils.py[line:40] - INFO: tn=4831, fp=649, fn=515, tp=4965
+2023-10-31 16:49:35 - utils.py[line:41] - INFO: y_pred: 0=5346 | 1=5614
+2023-10-31 16:49:35 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:49:35 - utils.py[line:43] - INFO: auc=0.9504|sn=0.9060|sp=0.8816|acc=0.8938|mcc=0.7878
+2023-10-31 16:49:35 - deepb3p.py[line:138] - INFO: training: Epoch-10/200 | loss=0.4155 | time=0.2249 min
+2023-10-31 16:49:38 - utils.py[line:40] - INFO: tn=1225, fp=141, fn=137, tp=1233
+2023-10-31 16:49:38 - utils.py[line:41] - INFO: y_pred: 0=1362 | 1=1374
+2023-10-31 16:49:38 - utils.py[line:42] - INFO: y_true: 0=1366 | 1=1370
+2023-10-31 16:49:38 - utils.py[line:43] - INFO: auc=0.9633|sn=0.9000|sp=0.8968|acc=0.8984|mcc=0.7968
+2023-10-31 16:49:38 - deepb3p.py[line:141] - INFO: validing: Epoch-10/200 | loss=0.4079 | time=0.0369 min
+2023-10-31 16:49:52 - utils.py[line:40] - INFO: tn=4867, fp=613, fn=493, tp=4987
+2023-10-31 16:49:52 - utils.py[line:41] - INFO: y_pred: 0=5360 | 1=5600
+2023-10-31 16:49:52 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:49:52 - utils.py[line:43] - INFO: auc=0.9550|sn=0.9100|sp=0.8881|acc=0.8991|mcc=0.7984
+2023-10-31 16:49:52 - deepb3p.py[line:138] - INFO: training: Epoch-11/200 | loss=0.4101 | time=0.2377 min
+2023-10-31 16:49:54 - utils.py[line:40] - INFO: tn=1202, fp=168, fn=106, tp=1260
+2023-10-31 16:49:54 - utils.py[line:41] - INFO: y_pred: 0=1308 | 1=1428
+2023-10-31 16:49:54 - utils.py[line:42] - INFO: y_true: 0=1370 | 1=1366
+2023-10-31 16:49:54 - utils.py[line:43] - INFO: auc=0.9595|sn=0.9224|sp=0.8774|acc=0.8999|mcc=0.8005
+2023-10-31 16:49:54 - deepb3p.py[line:141] - INFO: validing: Epoch-11/200 | loss=0.4075 | time=0.0301 min
+2023-10-31 16:50:07 - utils.py[line:40] - INFO: tn=4837, fp=643, fn=451, tp=5029
+2023-10-31 16:50:07 - utils.py[line:41] - INFO: y_pred: 0=5288 | 1=5672
+2023-10-31 16:50:07 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:50:07 - utils.py[line:43] - INFO: auc=0.9563|sn=0.9177|sp=0.8827|acc=0.9002|mcc=0.8009
+2023-10-31 16:50:07 - deepb3p.py[line:138] - INFO: training: Epoch-12/200 | loss=0.4093 | time=0.2179 min
+2023-10-31 16:50:09 - utils.py[line:40] - INFO: tn=1265, fp=103, fn=129, tp=1239
+2023-10-31 16:50:09 - utils.py[line:41] - INFO: y_pred: 0=1394 | 1=1342
+2023-10-31 16:50:09 - utils.py[line:42] - INFO: y_true: 0=1368 | 1=1368
+2023-10-31 16:50:09 - utils.py[line:43] - INFO: auc=0.9690|sn=0.9057|sp=0.9247|acc=0.9152|mcc=0.8306
+2023-10-31 16:50:09 - deepb3p.py[line:141] - INFO: validing: Epoch-12/200 | loss=0.3975 | time=0.0370 min
+2023-10-31 16:50:09 - deepb3p.py[line:158] - INFO: Get a better model with acc 0.9152
+2023-10-31 16:50:22 - utils.py[line:40] - INFO: tn=4859, fp=621, fn=475, tp=5005
+2023-10-31 16:50:22 - utils.py[line:41] - INFO: y_pred: 0=5334 | 1=5626
+2023-10-31 16:50:22 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:50:22 - utils.py[line:43] - INFO: auc=0.9571|sn=0.9133|sp=0.8867|acc=0.9000|mcc=0.8003
+2023-10-31 16:50:22 - deepb3p.py[line:138] - INFO: training: Epoch-13/200 | loss=0.4089 | time=0.2229 min
+2023-10-31 16:50:25 - utils.py[line:40] - INFO: tn=1252, fp=117, fn=112, tp=1255
+2023-10-31 16:50:25 - utils.py[line:41] - INFO: y_pred: 0=1364 | 1=1372
+2023-10-31 16:50:25 - utils.py[line:42] - INFO: y_true: 0=1369 | 1=1367
+2023-10-31 16:50:25 - utils.py[line:43] - INFO: auc=0.9705|sn=0.9181|sp=0.9145|acc=0.9163|mcc=0.8326
+2023-10-31 16:50:25 - deepb3p.py[line:141] - INFO: validing: Epoch-13/200 | loss=0.3938 | time=0.0392 min
+2023-10-31 16:50:25 - deepb3p.py[line:158] - INFO: Get a better model with acc 0.9163
+2023-10-31 16:50:39 - utils.py[line:40] - INFO: tn=4899, fp=580, fn=462, tp=5019
+2023-10-31 16:50:39 - utils.py[line:41] - INFO: y_pred: 0=5361 | 1=5599
+2023-10-31 16:50:39 - utils.py[line:42] - INFO: y_true: 0=5479 | 1=5481
+2023-10-31 16:50:39 - utils.py[line:43] - INFO: auc=0.9602|sn=0.9157|sp=0.8941|acc=0.9049|mcc=0.8100
+2023-10-31 16:50:39 - deepb3p.py[line:138] - INFO: training: Epoch-14/200 | loss=0.4057 | time=0.2287 min
+2023-10-31 16:50:40 - utils.py[line:40] - INFO: tn=1207, fp=162, fn=76, tp=1291
+2023-10-31 16:50:40 - utils.py[line:41] - INFO: y_pred: 0=1283 | 1=1453
+2023-10-31 16:50:40 - utils.py[line:42] - INFO: y_true: 0=1369 | 1=1367
+2023-10-31 16:50:40 - utils.py[line:43] - INFO: auc=0.9724|sn=0.9444|sp=0.8817|acc=0.9130|mcc=0.8277
+2023-10-31 16:50:40 - deepb3p.py[line:141] - INFO: validing: Epoch-14/200 | loss=0.3976 | time=0.0306 min
+2023-10-31 16:50:54 - utils.py[line:40] - INFO: tn=4911, fp=569, fn=440, tp=5040
+2023-10-31 16:50:54 - utils.py[line:41] - INFO: y_pred: 0=5351 | 1=5609
+2023-10-31 16:50:54 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:50:54 - utils.py[line:43] - INFO: auc=0.9630|sn=0.9197|sp=0.8962|acc=0.9079|mcc=0.8161
+2023-10-31 16:50:54 - deepb3p.py[line:138] - INFO: training: Epoch-15/200 | loss=0.4014 | time=0.2295 min
+2023-10-31 16:50:56 - utils.py[line:40] - INFO: tn=1219, fp=150, fn=90, tp=1277
+2023-10-31 16:50:56 - utils.py[line:41] - INFO: y_pred: 0=1309 | 1=1427
+2023-10-31 16:50:56 - utils.py[line:42] - INFO: y_true: 0=1369 | 1=1367
+2023-10-31 16:50:56 - utils.py[line:43] - INFO: auc=0.9716|sn=0.9342|sp=0.8904|acc=0.9123|mcc=0.8254
+2023-10-31 16:50:56 - deepb3p.py[line:141] - INFO: validing: Epoch-15/200 | loss=0.3976 | time=0.0353 min
+2023-10-31 16:51:10 - utils.py[line:40] - INFO: tn=4927, fp=554, fn=423, tp=5056
+2023-10-31 16:51:10 - utils.py[line:41] - INFO: y_pred: 0=5350 | 1=5610
+2023-10-31 16:51:10 - utils.py[line:42] - INFO: y_true: 0=5481 | 1=5479
+2023-10-31 16:51:10 - utils.py[line:43] - INFO: auc=0.9632|sn=0.9228|sp=0.8989|acc=0.9109|mcc=0.8220
+2023-10-31 16:51:10 - deepb3p.py[line:138] - INFO: training: Epoch-16/200 | loss=0.3992 | time=0.2181 min
+2023-10-31 16:51:12 - utils.py[line:40] - INFO: tn=1226, fp=143, fn=77, tp=1290
+2023-10-31 16:51:12 - utils.py[line:41] - INFO: y_pred: 0=1303 | 1=1433
+2023-10-31 16:51:12 - utils.py[line:42] - INFO: y_true: 0=1369 | 1=1367
+2023-10-31 16:51:12 - utils.py[line:43] - INFO: auc=0.9728|sn=0.9437|sp=0.8955|acc=0.9196|mcc=0.8402
+2023-10-31 16:51:12 - deepb3p.py[line:141] - INFO: validing: Epoch-16/200 | loss=0.3913 | time=0.0373 min
+2023-10-31 16:51:12 - deepb3p.py[line:158] - INFO: Get a better model with acc 0.9196
+2023-10-31 16:51:26 - utils.py[line:40] - INFO: tn=4936, fp=544, fn=431, tp=5049
+2023-10-31 16:51:26 - utils.py[line:41] - INFO: y_pred: 0=5367 | 1=5593
+2023-10-31 16:51:26 - utils.py[line:42] - INFO: y_true: 0=5480 | 1=5480
+2023-10-31 16:51:26 - utils.py[line:43] - INFO: auc=0.9641|sn=0.9214|sp=0.9007|acc=0.9110|mcc=0.8223
+2023-10-31 16:51:26 - deepb3p.py[line:138] - INFO: training: Epoch-17/200 | loss=0.3979 | time=0.2285 min
+2023-10-31 16:51:28 - utils.py[line:40] - INFO: tn=1132, fp=236, fn=45, tp=1323
+2023-10-31 16:51:28 - utils.py[line:41] - INFO: y_pred: 0=1177 | 1=1559
+2023-10-31 16:51:28 - utils.py[line:42] - INFO: y_true: 0=1368 | 1=1368
+2023-10-31 16:51:28 - utils.py[line:43] - INFO: auc=0.9730|sn=0.9671|sp=0.8275|acc=0.8973|mcc=0.8025
+2023-10-31 16:51:28 - deepb3p.py[line:141] - INFO: validing: Epoch-17/200 | loss=0.4105 | time=0.0395 min
+2023-10-31 16:51:42 - utils.py[line:40] - INFO: tn=4937, fp=544, fn=392, tp=5087
+2023-10-31 16:51:42 - utils.py[line:41] - INFO: y_pred: 0=5329 | 1=5631
+2023-10-31 16:51:42 - utils.py[line:42] - INFO: y_true: 0=5481 | 1=5479
+2023-10-31 16:51:42 - utils.py[line:43] - INFO: auc=0.9663|sn=0.9285|sp=0.9007|acc=0.9146|mcc=0.8295
+2023-10-31 16:51:42 - deepb3p.py[line:138] - INFO: training: Epoch-18/200 | loss=0.3954 | time=0.2315 min
+2023-10-31 16:51:44 - utils.py[line:40] - INFO: tn=1204, fp=163, fn=100, tp=1269
+2023-10-31 16:51:44 - utils.py[line:41] - INFO: y_pred: 0=1304 | 1=1432
+2023-10-31 16:51:44 - utils.py[line:42] - INFO: y_true: 0=1367 | 1=1369
+2023-10-31 16:51:44 - utils.py[line:43] - INFO: auc=0.9647|sn=0.9270|sp=0.8808|acc=0.9039|mcc=0.8086
+2023-10-31 16:51:44 - deepb3p.py[line:141] - INFO: validing: Epoch-18/200 | loss=0.4048 | time=0.0295 min
+2023-10-31 16:51:58 - utils.py[line:40] - INFO: tn=4968, fp=513, fn=369, tp=5110
+2023-10-31 16:51:58 - utils.py[line:41] - INFO: y_pred: 0=5337 | 1=5623
+2023-10-31 16:51:58 - utils.py[line:42] - INFO: y_true: 0=5481 | 1=5479
+2023-10-31 16:51:58 - utils.py[line:43] - INFO: auc=0.9665|sn=0.9327|sp=0.9064|acc=0.9195|mcc=0.8393
+2023-10-31 16:51:58 - deepb3p.py[line:138] - INFO: training: Epoch-19/200 | loss=0.3915 | time=0.2306 min
+2023-10-31 16:52:00 - utils.py[line:40] - INFO: tn=1225, fp=142, fn=82, tp=1287
+2023-10-31 16:52:00 - utils.py[line:41] - INFO: y_pred: 0=1307 | 1=1429
+2023-10-31 16:52:00 - utils.py[line:42] - INFO: y_true: 0=1367 | 1=1369
+2023-10-31 16:52:00 - utils.py[line:43] - INFO: auc=0.9733|sn=0.9401|sp=0.8961|acc=0.9181|mcc=0.8371
+2023-10-31 16:52:00 - deepb3p.py[line:141] - INFO: validing: Epoch-19/200 | loss=0.3930 | time=0.0373 min
+2023-10-31 16:52:14 - utils.py[line:40] - INFO: tn=4984, fp=497, fn=399, tp=5080
+2023-10-31 16:52:14 - utils.py[line:41] - INFO: y_pred: 0=5383 | 1=5577
+2023-10-31 16:52:14 - utils.py[line:42] - INFO: y_true: 0=5481 | 1=5479
+2023-10-31 16:52:14 - utils.py[line:43] - INFO: auc=0.9662|sn=0.9272|sp=0.9093|acc=0.9182|mcc=0.8366
+2023-10-31 16:52:14 - deepb3p.py[line:138] - INFO: training: Epoch-20/200 | loss=0.3921 | time=0.2303 min
+2023-10-31 16:52:16 - utils.py[line:40] - INFO: tn=1173, fp=196, fn=69, tp=1298
+2023-10-31 16:52:16 - utils.py[line:41] - INFO: y_pred: 0=1242 | 1=1494
+2023-10-31 16:52:16 - utils.py[line:42] - INFO: y_true: 0=1369 | 1=1367
+2023-10-31 16:52:16 - utils.py[line:43] - INFO: auc=0.9735|sn=0.9495|sp=0.8568|acc=0.9031|mcc=0.8098
+2023-10-31 16:52:16 - deepb3p.py[line:141] - INFO: validing: Epoch-20/200 | loss=0.4017 | time=0.0369 min
+2023-10-31 16:52:30 - utils.py[line:40] - INFO: tn=4978, fp=501, fn=351, tp=5130
+2023-10-31 16:52:30 - utils.py[line:41] - INFO: y_pred: 0=5329 | 1=5631
+2023-10-31 16:52:30 - utils.py[line:42] - INFO: y_true: 0=5479 | 1=5481
+2023-10-31 16:52:30 - utils.py[line:43] - INFO: auc=0.9685|sn=0.9360|sp=0.9086|acc=0.9223|mcc=0.8448
+2023-10-31 16:52:30 - deepb3p.py[line:138] - INFO: training: Epoch-21/200 | loss=0.3897 | time=0.2320 min
+2023-10-31 16:52:32 - utils.py[line:40] - INFO: tn=1239, fp=129, fn=98, tp=1270
+2023-10-31 16:52:32 - utils.py[line:41] - INFO: y_pred: 0=1337 | 1=1399
+2023-10-31 16:52:32 - utils.py[line:42] - INFO: y_true: 0=1368 | 1=1368
+2023-10-31 16:52:32 - utils.py[line:43] - INFO: auc=0.9730|sn=0.9284|sp=0.9057|acc=0.9170|mcc=0.8343
+2023-10-31 16:52:32 - deepb3p.py[line:141] - INFO: validing: Epoch-21/200 | loss=0.3946 | time=0.0295 min
+2023-10-31 16:52:32 - deepb3p.py[line:163] - INFO: validing acc has not improved for more than 5 steps in epoch 21, stop training
+2023-10-31 16:52:32 - deepb3p.py[line:167] - INFO: cv fold 5 for fold 5 done
+2023-10-31 16:52:32 - deepb3p.py[line:168] - INFO: Find best model, valid auc:0.973,  sn:0.944,  sp:0.896, acc:0.920, mcc:0.840
+2023-10-31 16:52:32 - deepb3p.py[line:171] - INFO: all folds are done
+2023-10-31 16:52:32 - deepb3p.py[line:173] - INFO: Fold        auc         sn          sp          acc         mcc         
+2023-10-31 16:52:32 - deepb3p.py[line:177] - INFO: 1           0.970       0.931       0.891       0.911       0.822       
+2023-10-31 16:52:32 - deepb3p.py[line:177] - INFO: 2           0.974       0.928       0.922       0.925       0.850       
+2023-10-31 16:52:32 - deepb3p.py[line:177] - INFO: 3           0.965       0.935       0.881       0.908       0.817       
+2023-10-31 16:52:32 - deepb3p.py[line:177] - INFO: 4           0.966       0.923       0.899       0.911       0.822       
+2023-10-31 16:52:32 - deepb3p.py[line:177] - INFO: 5           0.973       0.944       0.896       0.920       0.840       
+2023-10-31 16:52:32 - deepb3p.py[line:185] - INFO: Average     0.970       0.932       0.898       0.915       0.830       
+2023-10-31 16:52:32 - predict.py[line:46] - INFO: read pos test seqs: 99
+2023-10-31 16:52:32 - predict.py[line:47] - INFO: read neg test seqs: 99
+2023-10-31 16:52:32 - deepb3p.py[line:37] - INFO: the device is cuda:2
+2023-10-31 16:52:32 - deepb3p.py[line:38] - INFO: Begining init the deepb3p model with the lr is: 0.0001
+2023-10-31 16:52:32 - deepb3p.py[line:55] - INFO: the model:
+Classifier(
+  (encoder): Encoder(
+    (src_emb): Embedding(21, 512)
+    (pos_emb): PositionalEncoding(
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (layers): ModuleList(
+      (0): EncoderLayer(
+        (enc_self_attn): MultiHeadAttention(
+          (W_Q): Linear(in_features=512, out_features=64, bias=False)
+          (W_K): Linear(in_features=512, out_features=64, bias=False)
+          (W_V): Linear(in_features=512, out_features=64, bias=False)
+          (fc): Linear(in_features=64, out_features=512, bias=False)
+        )
+        (pos_ffn): PoswiseFeedForwardNet(
+          (fc): Sequential(
+            (0): Linear(in_features=512, out_features=16, bias=False)
+            (1): ReLU()
+            (2): Linear(in_features=16, out_features=512, bias=False)
+          )
+        )
+      )
+    )
+  )
+  (decoder): Decoder(
+    (tgt_emb): Embedding(21, 512)
+    (pos_emb): PositionalEncoding(
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (layers): ModuleList(
+      (0): DecoderLayer(
+        (dec_self_attn): MultiHeadAttention(
+          (W_Q): Linear(in_features=512, out_features=64, bias=False)
+          (W_K): Linear(in_features=512, out_features=64, bias=False)
+          (W_V): Linear(in_features=512, out_features=64, bias=False)
+          (fc): Linear(in_features=64, out_features=512, bias=False)
+        )
+        (dec_enc_attn): MultiHeadAttention(
+          (W_Q): Linear(in_features=512, out_features=64, bias=False)
+          (W_K): Linear(in_features=512, out_features=64, bias=False)
+          (W_V): Linear(in_features=512, out_features=64, bias=False)
+          (fc): Linear(in_features=64, out_features=512, bias=False)
+        )
+        (pos_ffn): PoswiseFeedForwardNet(
+          (fc): Sequential(
+            (0): Linear(in_features=512, out_features=16, bias=False)
+            (1): ReLU()
+            (2): Linear(in_features=16, out_features=512, bias=False)
+          )
+        )
+      )
+    )
+  )
+  (projection): Sequential(
+    (0): Linear(in_features=25600, out_features=256, bias=True)
+    (1): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): ReLU()
+    (3): Linear(in_features=256, out_features=256, bias=True)
+    (4): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): ReLU()
+    (6): Linear(in_features=256, out_features=2, bias=True)
+  )
+)
+2023-10-31 16:52:32 - deepb3p.py[line:66] - INFO: Loading model from /home/transformer/deepB3P/model/checkpoint/512d_16ff_32k_2h_0.0001lr_0.1p/deepb3p_1.pth
+2023-10-31 16:52:32 - deepb3p.py[line:37] - INFO: the device is cuda:2
+2023-10-31 16:52:32 - deepb3p.py[line:38] - INFO: Begining init the deepb3p model with the lr is: 0.0001
+2023-10-31 16:52:32 - deepb3p.py[line:55] - INFO: the model:
+Classifier(
+  (encoder): Encoder(
+    (src_emb): Embedding(21, 512)
+    (pos_emb): PositionalEncoding(
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (layers): ModuleList(
+      (0): EncoderLayer(
+        (enc_self_attn): MultiHeadAttention(
+          (W_Q): Linear(in_features=512, out_features=64, bias=False)
+          (W_K): Linear(in_features=512, out_features=64, bias=False)
+          (W_V): Linear(in_features=512, out_features=64, bias=False)
+          (fc): Linear(in_features=64, out_features=512, bias=False)
+        )
+        (pos_ffn): PoswiseFeedForwardNet(
+          (fc): Sequential(
+            (0): Linear(in_features=512, out_features=16, bias=False)
+            (1): ReLU()
+            (2): Linear(in_features=16, out_features=512, bias=False)
+          )
+        )
+      )
+    )
+  )
+  (decoder): Decoder(
+    (tgt_emb): Embedding(21, 512)
+    (pos_emb): PositionalEncoding(
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (layers): ModuleList(
+      (0): DecoderLayer(
+        (dec_self_attn): MultiHeadAttention(
+          (W_Q): Linear(in_features=512, out_features=64, bias=False)
+          (W_K): Linear(in_features=512, out_features=64, bias=False)
+          (W_V): Linear(in_features=512, out_features=64, bias=False)
+          (fc): Linear(in_features=64, out_features=512, bias=False)
+        )
+        (dec_enc_attn): MultiHeadAttention(
+          (W_Q): Linear(in_features=512, out_features=64, bias=False)
+          (W_K): Linear(in_features=512, out_features=64, bias=False)
+          (W_V): Linear(in_features=512, out_features=64, bias=False)
+          (fc): Linear(in_features=64, out_features=512, bias=False)
+        )
+        (pos_ffn): PoswiseFeedForwardNet(
+          (fc): Sequential(
+            (0): Linear(in_features=512, out_features=16, bias=False)
+            (1): ReLU()
+            (2): Linear(in_features=16, out_features=512, bias=False)
+          )
+        )
+      )
+    )
+  )
+  (projection): Sequential(
+    (0): Linear(in_features=25600, out_features=256, bias=True)
+    (1): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): ReLU()
+    (3): Linear(in_features=256, out_features=256, bias=True)
+    (4): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): ReLU()
+    (6): Linear(in_features=256, out_features=2, bias=True)
+  )
+)
+2023-10-31 16:52:32 - deepb3p.py[line:66] - INFO: Loading model from /home/transformer/deepB3P/model/checkpoint/512d_16ff_32k_2h_0.0001lr_0.1p/deepb3p_2.pth
+2023-10-31 16:52:32 - deepb3p.py[line:37] - INFO: the device is cuda:2
+2023-10-31 16:52:32 - deepb3p.py[line:38] - INFO: Begining init the deepb3p model with the lr is: 0.0001
+2023-10-31 16:52:32 - deepb3p.py[line:55] - INFO: the model:
+Classifier(
+  (encoder): Encoder(
+    (src_emb): Embedding(21, 512)
+    (pos_emb): PositionalEncoding(
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (layers): ModuleList(
+      (0): EncoderLayer(
+        (enc_self_attn): MultiHeadAttention(
+          (W_Q): Linear(in_features=512, out_features=64, bias=False)
+          (W_K): Linear(in_features=512, out_features=64, bias=False)
+          (W_V): Linear(in_features=512, out_features=64, bias=False)
+          (fc): Linear(in_features=64, out_features=512, bias=False)
+        )
+        (pos_ffn): PoswiseFeedForwardNet(
+          (fc): Sequential(
+            (0): Linear(in_features=512, out_features=16, bias=False)
+            (1): ReLU()
+            (2): Linear(in_features=16, out_features=512, bias=False)
+          )
+        )
+      )
+    )
+  )
+  (decoder): Decoder(
+    (tgt_emb): Embedding(21, 512)
+    (pos_emb): PositionalEncoding(
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (layers): ModuleList(
+      (0): DecoderLayer(
+        (dec_self_attn): MultiHeadAttention(
+          (W_Q): Linear(in_features=512, out_features=64, bias=False)
+          (W_K): Linear(in_features=512, out_features=64, bias=False)
+          (W_V): Linear(in_features=512, out_features=64, bias=False)
+          (fc): Linear(in_features=64, out_features=512, bias=False)
+        )
+        (dec_enc_attn): MultiHeadAttention(
+          (W_Q): Linear(in_features=512, out_features=64, bias=False)
+          (W_K): Linear(in_features=512, out_features=64, bias=False)
+          (W_V): Linear(in_features=512, out_features=64, bias=False)
+          (fc): Linear(in_features=64, out_features=512, bias=False)
+        )
+        (pos_ffn): PoswiseFeedForwardNet(
+          (fc): Sequential(
+            (0): Linear(in_features=512, out_features=16, bias=False)
+            (1): ReLU()
+            (2): Linear(in_features=16, out_features=512, bias=False)
+          )
+        )
+      )
+    )
+  )
+  (projection): Sequential(
+    (0): Linear(in_features=25600, out_features=256, bias=True)
+    (1): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): ReLU()
+    (3): Linear(in_features=256, out_features=256, bias=True)
+    (4): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): ReLU()
+    (6): Linear(in_features=256, out_features=2, bias=True)
+  )
+)
+2023-10-31 16:52:32 - deepb3p.py[line:66] - INFO: Loading model from /home/transformer/deepB3P/model/checkpoint/512d_16ff_32k_2h_0.0001lr_0.1p/deepb3p_3.pth
+2023-10-31 16:52:32 - deepb3p.py[line:37] - INFO: the device is cuda:2
+2023-10-31 16:52:32 - deepb3p.py[line:38] - INFO: Begining init the deepb3p model with the lr is: 0.0001
+2023-10-31 16:52:32 - deepb3p.py[line:55] - INFO: the model:
+Classifier(
+  (encoder): Encoder(
+    (src_emb): Embedding(21, 512)
+    (pos_emb): PositionalEncoding(
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (layers): ModuleList(
+      (0): EncoderLayer(
+        (enc_self_attn): MultiHeadAttention(
+          (W_Q): Linear(in_features=512, out_features=64, bias=False)
+          (W_K): Linear(in_features=512, out_features=64, bias=False)
+          (W_V): Linear(in_features=512, out_features=64, bias=False)
+          (fc): Linear(in_features=64, out_features=512, bias=False)
+        )
+        (pos_ffn): PoswiseFeedForwardNet(
+          (fc): Sequential(
+            (0): Linear(in_features=512, out_features=16, bias=False)
+            (1): ReLU()
+            (2): Linear(in_features=16, out_features=512, bias=False)
+          )
+        )
+      )
+    )
+  )
+  (decoder): Decoder(
+    (tgt_emb): Embedding(21, 512)
+    (pos_emb): PositionalEncoding(
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (layers): ModuleList(
+      (0): DecoderLayer(
+        (dec_self_attn): MultiHeadAttention(
+          (W_Q): Linear(in_features=512, out_features=64, bias=False)
+          (W_K): Linear(in_features=512, out_features=64, bias=False)
+          (W_V): Linear(in_features=512, out_features=64, bias=False)
+          (fc): Linear(in_features=64, out_features=512, bias=False)
+        )
+        (dec_enc_attn): MultiHeadAttention(
+          (W_Q): Linear(in_features=512, out_features=64, bias=False)
+          (W_K): Linear(in_features=512, out_features=64, bias=False)
+          (W_V): Linear(in_features=512, out_features=64, bias=False)
+          (fc): Linear(in_features=64, out_features=512, bias=False)
+        )
+        (pos_ffn): PoswiseFeedForwardNet(
+          (fc): Sequential(
+            (0): Linear(in_features=512, out_features=16, bias=False)
+            (1): ReLU()
+            (2): Linear(in_features=16, out_features=512, bias=False)
+          )
+        )
+      )
+    )
+  )
+  (projection): Sequential(
+    (0): Linear(in_features=25600, out_features=256, bias=True)
+    (1): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): ReLU()
+    (3): Linear(in_features=256, out_features=256, bias=True)
+    (4): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): ReLU()
+    (6): Linear(in_features=256, out_features=2, bias=True)
+  )
+)
+2023-10-31 16:52:32 - deepb3p.py[line:66] - INFO: Loading model from /home/transformer/deepB3P/model/checkpoint/512d_16ff_32k_2h_0.0001lr_0.1p/deepb3p_4.pth
+2023-10-31 16:52:32 - deepb3p.py[line:37] - INFO: the device is cuda:2
+2023-10-31 16:52:32 - deepb3p.py[line:38] - INFO: Begining init the deepb3p model with the lr is: 0.0001
+2023-10-31 16:52:32 - deepb3p.py[line:55] - INFO: the model:
+Classifier(
+  (encoder): Encoder(
+    (src_emb): Embedding(21, 512)
+    (pos_emb): PositionalEncoding(
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (layers): ModuleList(
+      (0): EncoderLayer(
+        (enc_self_attn): MultiHeadAttention(
+          (W_Q): Linear(in_features=512, out_features=64, bias=False)
+          (W_K): Linear(in_features=512, out_features=64, bias=False)
+          (W_V): Linear(in_features=512, out_features=64, bias=False)
+          (fc): Linear(in_features=64, out_features=512, bias=False)
+        )
+        (pos_ffn): PoswiseFeedForwardNet(
+          (fc): Sequential(
+            (0): Linear(in_features=512, out_features=16, bias=False)
+            (1): ReLU()
+            (2): Linear(in_features=16, out_features=512, bias=False)
+          )
+        )
+      )
+    )
+  )
+  (decoder): Decoder(
+    (tgt_emb): Embedding(21, 512)
+    (pos_emb): PositionalEncoding(
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (layers): ModuleList(
+      (0): DecoderLayer(
+        (dec_self_attn): MultiHeadAttention(
+          (W_Q): Linear(in_features=512, out_features=64, bias=False)
+          (W_K): Linear(in_features=512, out_features=64, bias=False)
+          (W_V): Linear(in_features=512, out_features=64, bias=False)
+          (fc): Linear(in_features=64, out_features=512, bias=False)
+        )
+        (dec_enc_attn): MultiHeadAttention(
+          (W_Q): Linear(in_features=512, out_features=64, bias=False)
+          (W_K): Linear(in_features=512, out_features=64, bias=False)
+          (W_V): Linear(in_features=512, out_features=64, bias=False)
+          (fc): Linear(in_features=64, out_features=512, bias=False)
+        )
+        (pos_ffn): PoswiseFeedForwardNet(
+          (fc): Sequential(
+            (0): Linear(in_features=512, out_features=16, bias=False)
+            (1): ReLU()
+            (2): Linear(in_features=16, out_features=512, bias=False)
+          )
+        )
+      )
+    )
+  )
+  (projection): Sequential(
+    (0): Linear(in_features=25600, out_features=256, bias=True)
+    (1): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): ReLU()
+    (3): Linear(in_features=256, out_features=256, bias=True)
+    (4): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): ReLU()
+    (6): Linear(in_features=256, out_features=2, bias=True)
+  )
+)
+2023-10-31 16:52:32 - deepb3p.py[line:66] - INFO: Loading model from /home/transformer/deepB3P/model/checkpoint/512d_16ff_32k_2h_0.0001lr_0.1p/deepb3p_5.pth
+2023-10-31 16:52:33 - utils.py[line:40] - INFO: tn=84, fp=15, fn=28, tp=71
+2023-10-31 16:52:33 - utils.py[line:41] - INFO: y_pred: 0=112 | 1=86
+2023-10-31 16:52:33 - utils.py[line:42] - INFO: y_true: 0=99 | 1=99
+2023-10-31 16:52:33 - utils.py[line:43] - INFO: auc=0.8558|sn=0.7172|sp=0.8485|acc=0.7828|mcc=0.5706
+2023-10-31 16:52:33 - utils.py[line:40] - INFO: tn=88, fp=11, fn=36, tp=63
+2023-10-31 16:52:33 - utils.py[line:41] - INFO: y_pred: 0=124 | 1=74
+2023-10-31 16:52:33 - utils.py[line:42] - INFO: y_true: 0=99 | 1=99
+2023-10-31 16:52:33 - utils.py[line:43] - INFO: auc=0.8437|sn=0.6364|sp=0.8889|acc=0.7626|mcc=0.5428
+2023-10-31 16:52:33 - utils.py[line:40] - INFO: tn=81, fp=18, fn=26, tp=73
+2023-10-31 16:52:33 - utils.py[line:41] - INFO: y_pred: 0=107 | 1=91
+2023-10-31 16:52:33 - utils.py[line:42] - INFO: y_true: 0=99 | 1=99
+2023-10-31 16:52:33 - utils.py[line:43] - INFO: auc=0.8376|sn=0.7374|sp=0.8182|acc=0.7778|mcc=0.5574
+2023-10-31 16:52:33 - utils.py[line:40] - INFO: tn=83, fp=16, fn=28, tp=71
+2023-10-31 16:52:33 - utils.py[line:41] - INFO: y_pred: 0=111 | 1=87
+2023-10-31 16:52:33 - utils.py[line:42] - INFO: y_true: 0=99 | 1=99
+2023-10-31 16:52:33 - utils.py[line:43] - INFO: auc=0.8579|sn=0.7172|sp=0.8384|acc=0.7778|mcc=0.5597
+2023-10-31 16:52:33 - utils.py[line:40] - INFO: tn=85, fp=14, fn=26, tp=73
+2023-10-31 16:52:33 - utils.py[line:41] - INFO: y_pred: 0=111 | 1=87
+2023-10-31 16:52:33 - utils.py[line:42] - INFO: y_true: 0=99 | 1=99
+2023-10-31 16:52:33 - utils.py[line:43] - INFO: auc=0.8401|sn=0.7374|sp=0.8586|acc=0.7980|mcc=0.6004
+2023-10-31 16:52:33 - predict.py[line:60] - INFO: Average result for 5-fold
+2023-10-31 16:52:33 - predict.py[line:63] - INFO: Average     auc         sn          sp          acc         mcc         
+2023-10-31 16:52:33 - predict.py[line:64] - INFO: Average1    0.847       0.709       0.851       0.780       0.566       
+2023-10-31 16:52:33 - utils.py[line:40] - INFO: tn=86, fp=13, fn=23, tp=76
+2023-10-31 16:52:33 - utils.py[line:41] - INFO: y_pred: 0=109 | 1=89
+2023-10-31 16:52:33 - utils.py[line:42] - INFO: y_true: 0=99 | 1=99
+2023-10-31 16:52:33 - utils.py[line:43] - INFO: auc=0.8579|sn=0.7677|sp=0.8687|acc=0.8182|mcc=0.6396
+2023-10-31 16:52:33 - predict.py[line:69] - INFO: Average     auc         sn          sp          acc         mcc         
+2023-10-31 16:52:33 - predict.py[line:70] - INFO: Average     0.858       0.768       0.869       0.818       0.640       
+2023-10-31 16:52:33 - predict.py[line:82] - INFO: vote        sn          sp          acc         mcc         
+2023-10-31 16:52:33 - predict.py[line:83] - INFO: vote        0.768       0.869       0.818       0.640       
