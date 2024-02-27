@@ -1,0 +1,132 @@
+absl-py @ file:///croot/absl-py_1666362940888/work
+alabaster==0.7.13
+annotated-types==0.5.0
+asgiref==3.7.2
+astor==0.8.1
+autopep8==2.0.2
+Babel==2.12.1
+biopython @ file:///tmp/build/80754af9/biopython_1632738057617/work
+boto3==1.29.0
+botocore==1.32.0
+brotlipy==0.7.0
+certifi @ file:///home/conda/feedstock_root/build_artifacts/certifi_1700303426725/work/certifi
+cffi @ file:///tmp/abs_98z5h56wf8/croots/recipe/cffi_1659598650955/work
+charset-normalizer @ file:///tmp/build/80754af9/charset-normalizer_1630003229654/work
+click==8.1.6
+cloudpickle==2.2.1
+colorama @ file:///home/conda/feedstock_root/build_artifacts/colorama_1666700638685/work
+configparser==5.3.0
+cryptography @ file:///croot/cryptography_1677533068310/work
+cycler @ file:///home/conda/feedstock_root/build_artifacts/cycler_1635519461629/work
+dgl==1.1.1+cu117
+dglgo==0.0.2
+dgllife==0.3.2
+Django==3.2.5
+docutils==0.19
+filelock==3.12.2
+fonttools==4.25.0
+fsspec==2023.1.0
+future==0.18.3
+gast==0.2.2
+gensim==4.2.0
+google-pasta @ file:///Users/ktietz/demo/mc3/conda-bld/google-pasta_1630577991354/work
+grpcio @ file:///tmp/build/80754af9/grpcio_1637578017926/work
+h5py @ file:///tmp/abs_4aewd3wzey/croots/recipe/h5py_1659091371897/work
+huggingface-hub==0.16.4
+hyperopt==0.2.7
+idna @ file:///croot/idna_1666125576474/work
+imagesize==1.4.1
+importlib-metadata @ file:///tmp/build/80754af9/importlib-metadata_1648562407465/work
+isort==5.11.5
+Jinja2 @ file:///croot/jinja2_1666908132255/work
+jmespath==1.0.1
+joblib @ file:///home/conda/feedstock_root/build_artifacts/joblib_1663332044897/work
+Keras-Applications @ file:///tmp/build/80754af9/keras-applications_1594366238411/work
+Keras-Preprocessing @ file:///tmp/build/80754af9/keras-preprocessing_1612283640596/work
+kiwisolver @ file:///croot/kiwisolver_1672387140495/work
+littleutils==0.2.2
+llvmlite==0.39.1
+lmdb==1.4.1
+lxml==4.9.2
+Markdown @ file:///croot/markdown_1671541909495/work
+MarkupSafe @ file:///opt/conda/conda-bld/markupsafe_1654597864307/work
+matplotlib @ file:///home/conda/feedstock_root/build_artifacts/matplotlib-suite_1661439848456/work
+mkl-fft==1.3.1
+mkl-random @ file:///tmp/build/80754af9/mkl_random_1626179032232/work
+mkl-service==2.4.0
+more-itertools==9.1.0
+networkx==2.6.3
+numba==0.56.4
+numpy @ file:///opt/conda/conda-bld/numpy_and_numpy_base_1653915516269/work
+numpydoc==1.5.0
+ogb==1.3.6
+opt-einsum==3.3.0
+outdated==0.2.2
+packaging @ file:///home/conda/feedstock_root/build_artifacts/packaging_1681337016113/work
+pandas==1.2.3
+pepnn==1.0
+Pillow==9.4.0
+ply==3.11
+protobuf==3.20.1
+psutil==5.9.5
+py4j==0.10.9.7
+pycodestyle==2.10.0
+pycparser @ file:///tmp/build/80754af9/pycparser_1636541352034/work
+pydantic==2.1.1
+pydantic_core==2.4.0
+Pygments==2.15.1
+pyOpenSSL @ file:///croot/pyopenssl_1677607685877/work
+pyparsing @ file:///home/conda/feedstock_root/build_artifacts/pyparsing_1652235407899/work
+PyQt5-sip==12.11.0
+PySocks @ file:///tmp/build/80754af9/pysocks_1594394576006/work
+python-dateutil @ file:///home/conda/feedstock_root/build_artifacts/python-dateutil_1626286286081/work
+pytz @ file:///home/conda/feedstock_root/build_artifacts/pytz_1680088766131/work
+PyYAML==6.0.1
+rdkit-pypi==2021.3.5
+regex==2023.10.3
+requests @ file:///opt/conda/conda-bld/requests_1657734628632/work
+ruamel.yaml==0.17.32
+ruamel.yaml.clib==0.2.7
+s3transfer==0.7.0
+safetensors==0.4.1
+scikit-learn==1.0.2
+scipy @ file:///opt/conda/conda-bld/scipy_1661390393401/work
+seaborn==0.12.2
+shap==0.41.0
+sip @ file:///home/conda/feedstock_root/build_artifacts/sip_1655764897437/work
+six @ file:///tmp/build/80754af9/six_1644875935023/work
+slicer==0.0.7
+smart-open==6.3.0
+snowballstemmer==2.2.0
+Sphinx==5.3.0
+sphinxcontrib-applehelp==1.0.2
+sphinxcontrib-devhelp==1.0.2
+sphinxcontrib-htmlhelp==2.0.0
+sphinxcontrib-jsmath==1.0.1
+sphinxcontrib-qthelp==1.0.3
+sphinxcontrib-serializinghtml==1.1.5
+sqlparse==0.4.4
+tape-proteins==0.5
+tensorboard==1.14.0
+tensorboardX==2.6.2
+tensorflow==1.14.0
+tensorflow-estimator==1.14.0
+termcolor @ file:///croot/termcolor_1668084651543/work
+threadpoolctl==3.1.0
+tokenizers==0.13.3
+toml @ file:///home/conda/feedstock_root/build_artifacts/toml_1604308577558/work
+tomli==2.0.1
+torch==1.13.0
+torch-geometric @ file:///usr/share/miniconda/envs/test/conda-bld/pyg_1690989686626/work
+torchaudio==0.13.0
+torchsampler==0.1.2
+torchvision==0.14.0
+tornado @ file:///home/conda/feedstock_root/build_artifacts/tornado_1656937818679/work
+tqdm @ file:///home/conda/feedstock_root/build_artifacts/tqdm_1677948868469/work
+transformers==4.30.2
+typer==0.9.0
+typing_extensions==4.7.1
+urllib3 @ file:///croot/urllib3_1673575502006/work
+Werkzeug @ file:///croot/werkzeug_1671215996852/work
+wrapt @ file:///tmp/abs_c335821b-6e43-4504-9816-b1a52d3d3e1eel6uae8l/croots/recipe/wrapt_1657814400492/work
+zipp @ file:///croot/zipp_1672387121353/work
