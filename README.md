@@ -11,3 +11,5 @@ The output file is prob.csv in the current directory, containing the input seque
 `python  fbgan_model.py`<br/>
 1.  The number of sequences output can be made active by setting the n_sequences parameter in the config_fbgan.py file
 2.  if n_epochs != 1,000, then train a new FBGAN model, and user can modify the parameter for training a new model in config_fbgan.py
+3.  the output file is in the fbgan/out
+
