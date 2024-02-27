@@ -1,7 +1,8 @@
 # DeepB3P
 DeepB3P: A Transformer-Based Model for Identifying and Generating Blood-Brain Barrier Penetrating Peptides by Using Feedback GAN<br/>
 The feedback generative adversarial network (FBGAN) model was employed to effectively generate analogous BBBPs, addressing data imbalance.
-html <div align="center"> <img src="./images/abfig.png" width="75%"> </div>
+<div align="center"> <img src="./images/abfig.png" width="55%"></div>
+
 # Environment
 1. The model training and testing process was performed on a CentOS Linux system. The CPU was an Intel(R) Xeon(R) Gold 62336Y CPU @ 2.40 GHz, which had 48 logical CPUs. The GPU was the NVIDIA A100, which had a memory capacity of 80G.
 2. The packages used for deepB3P are available in environment.yml and requirements.txt, and can be installed using conda install and pip install respectively.
