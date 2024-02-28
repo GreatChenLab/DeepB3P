@@ -17,7 +17,6 @@ The output file is prob.csv in the current directory, containing the input seque
 3.  the output file is in the fbgan/out
 
 # Explanation of the main parameters
-1. parameters in config.py
 
  | parameter        | Explanation   | 
 | --------   | -----:  |
