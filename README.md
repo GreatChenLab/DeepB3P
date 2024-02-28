@@ -1,7 +1,7 @@
 # DeepB<sup>3</sup>P
 DeepB<sup>3</sup>P: A Transformer-Based Model for Identifying and Generating Blood-Brain Barrier Penetrating Peptides by Using Feedback GAN<br/>
 The feedback generative adversarial network (FBGAN) model was employed to effectively generate analogous BBBPs, addressing data imbalance.
-<div align="center"> <img src="./images/abfig.png" width="55%"></div>
+<div align="center"> <img src="https://github.com/GreatChenLab/deepB3P/assets/90399926/bc2d32ee-d456-4827-9fff-c5dc892a28dd" width="55%"></div>
 
 # Environment
 1. The model training and testing process was performed on a CentOS Linux system. The CPU was an Intel(R) Xeon(R) Gold 62336Y CPU @ 2.40 GHz, which had 48 logical CPUs. The GPU was the NVIDIA A100, which had a memory capacity of 80G.
@@ -35,3 +35,4 @@ The output file is prob.csv in the current directory, containing the input seque
 |d_k |dimension of K(=Q), V  for deepB<sup>3</sup>P，default 32|
 |n_layers |number of encoder of decoder layer  for deepB<sup>3</sup>P，default 1|
 |n_heads |number of head  for deepB<sup>3</sup>P，default 2|
+
