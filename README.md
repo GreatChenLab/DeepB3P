@@ -3,6 +3,8 @@ DeepB<sup>3</sup>P: A Transformer-Based Model for Identifying and Generating Blo
 The feedback generative adversarial network (FBGAN) model was employed to effectively generate analogous BBBPs, addressing data imbalance.
 <div align="center"> <img src="https://github.com/GreatChenLab/deepB3P/assets/90399926/bc2d32ee-d456-4827-9fff-c5dc892a28dd" width="55%"></div>
 
+# Webserver
+[http://cbcb.cdutcm.edu.cn/deepb3p/](http://cbcb.cdutcm.edu.cn/deepb3p/)
 # Environment
 1. The model training and testing process was performed on a CentOS Linux system. The CPU was an Intel(R) Xeon(R) Gold 62336Y CPU @ 2.40 GHz, which had 48 logical CPUs. The GPU was the NVIDIA A100, which had a memory capacity of 80G.
 2. The packages used for deepB<sup>3</sup>P are available in environment.yml and requirements.txt, and can be installed using conda install and pip install respectively.
