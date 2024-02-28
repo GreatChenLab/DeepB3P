@@ -16,3 +16,23 @@ The output file is prob.csv in the current directory, containing the input seque
 2.  if n_epochs != 1,000, then train a new FBGAN model, and user can modify the parameter for training a new model in config_fbgan.py
 3.  the output file is in the fbgan/out
 
+# Explanation of the main parameters
+1. parameters in config.py
+
+ | parameter        | Explanation   | 
+| --------   | -----:  |
+|seq_len |the max legth of peptide, default 50 |
+|vocab_size |for train fbgan, 20 aa add 1 'X', default 21|
+|drop |dropout for all models, default 0.3|
+|bs |batch size, default 16|
+|n_epochs |epochs for all models, default 200|
+|lr |learning rate, default 0.0001|
+|kFold |k-fold cross validation, default 5|
+|earlyStop |Early stops the training if validation acc doesn't improve after a given patience, default 5|
+|reload |Whether to start training based on an existing model，default True|
+|is_blast |Whether to use the feedback function (BLAST)，default True|
+|d_model |embedding size for deepB<sup>3</sup>P，default 64|
+|d_ff |feedforeard dimension size for deepB<sup>3</sup>P，default 16|
+|d_k |dimension of K(=Q), V  for deepB<sup>3</sup>P，default 32|
+|n_layers |number of encoder of decoder layer  for deepB<sup>3</sup>P，default 1|
+|n_heads |number of head  for deepB<sup>3</sup>P，default 2|
